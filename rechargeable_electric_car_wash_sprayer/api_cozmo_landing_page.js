@@ -41,6 +41,7 @@ $("#formInfo").submit(function (event) {
         // Handle successful response from SheetDB
         console.log("Order added to SheetDB successfully");
 
+        
         // To track the purchase event using Facebook Pixel
         fbq("track", "Purchase", {
           value: 10,
