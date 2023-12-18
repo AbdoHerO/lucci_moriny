@@ -20,7 +20,7 @@ $("#formInfo").submit(function (event) {
     city: "-",
     address: adresse,
     quantity: "1",
-    price: "599 Dh",
+    price: "139 Dh",
     product_notice: "",
     notice: "",
     status: "pending",
