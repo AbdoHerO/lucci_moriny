@@ -47,7 +47,7 @@ $("#formInfo").submit(function (event) {
           currency: "USD",
           content_name: "new rechargeable_electric",
           content_type: "home decoration",
-          product_id: "1129",
+          product_id: "1130",
         });
 
         // document.location.href = "/new_rechargeable_electric_car_wash_sprayer/order_success.html";
@@ -102,9 +102,9 @@ $("#formInfo").submit(function (event) {
       phone: phone,
       city: "",
       adresse: adresse,
-      id_product: "1129",
+      id_product: "1130",
       name_product: "New Rechrechargeable electric car wash sprayerargeable electric car wash sprayer",
-      unit_price: "599",
+      unit_price: "799",
       quantite: "1",
       variant: "",
       from_landing_page: true,
@@ -116,7 +116,7 @@ $("#formInfo").submit(function (event) {
       //   currency: "USD",
       //   content_name: "axi_inflatable_sofa",
       //   content_type: "home decoration",
-      //   product_id: "1129",
+      //   product_id: "1130",
       // });
 
       document.location.href = "/new_rechargeable_electric_car_wash_sprayer/order_success.html";
