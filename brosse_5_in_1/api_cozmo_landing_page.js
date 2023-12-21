@@ -119,10 +119,7 @@ $("#formInfo").submit(function (event) {
       //   product_id: "1132",
       // });
 
-      // Display an error message if the update fails
-      alert("وقع حطأ اثناء الطلب , يرجى المحاولة لاحقا ");
-
-      // document.location.href = "/brosse_5_in_1/order_success.html";
+      document.location.href = "/brosse_5_in_1/order_success.html";
       // hide loading icon and enable the button
       //   $("#save_guest_order").prop("disabled", false);
       //   $("#span_loading").hide();
@@ -144,10 +141,10 @@ $("#formInfo").submit(function (event) {
       //$("#save_guest_order").prop("disabled", false);
       //$("#span_loading").hide();
       //console.log("Error :", error);
-      // Display an error message if the update fails
-      alert("وقع حطأ اثناء الطلب , يرجى المحاولة لاحقا ");
+      // // Display an error message if the update fails
+      //alert("وقع حطأ اثناء الطلب , يرجى المحاولة لاحقا ");
 
-      // document.location.href = "/brosse_5_in_1/order_success.html";
+      document.location.href = "/brosse_5_in_1/order_success.html";
 
     },
   });
