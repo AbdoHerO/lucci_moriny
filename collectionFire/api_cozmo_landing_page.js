@@ -109,7 +109,7 @@ $("#formInfo").submit(function (event) {
       name_product: "collection_FIre",
       unit_price: "369",
       quantite: "1",
-      variant: product_color+product_size,
+      variant: ""+product_color+product_size,
       from_landing_page: true,
     },
     success: function (response) {
