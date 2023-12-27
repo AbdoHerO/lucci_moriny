@@ -27,25 +27,25 @@
     <!-- <script src="js/fbevents.js"></script> -->
 
     <!-- Facebook Pixel Code -->
-<!-- Meta Pixel Code -->
-<script>
-    !function (f, b, e, v, n, t, s) {
-        if (f.fbq) return; n = f.fbq = function () {
-            n.callMethod ?
-            n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-        };
-        if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-        n.queue = []; t = b.createElement(e); t.async = !0;
-        t.src = v; s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s)
-    }(window, document, 'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '2645231358977248');
-    fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=2645231358977248&ev=PageView&noscript=1" /></noscript>
-<!-- End Meta Pixel Code -->
+    <!-- Meta Pixel Code -->
+    <script>
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq) return; n = f.fbq = function () {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
+            n.queue = []; t = b.createElement(e); t.async = !0;
+            t.src = v; s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window, document, 'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2645231358977248');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+            src="https://www.facebook.com/tr?id=2645231358977248&ev=PageView&noscript=1" /></noscript>
+    <!-- End Meta Pixel Code -->
     <!-- Facebook Pixel Code -->
 
     <!-- Tiktok Pixel Code -->
@@ -281,7 +281,7 @@
                                             class="u-container-style u-group u-radius-20 u-shape-round u-similar-fill u-white u-group-1">
                                             <div class="u-container-layout u-valign-middle u-container-layout-2">
                                                 <p class="u-align-left u-text u-text-black u-text-font u-text-2">
-                                                    La simplicité li kayan fe ensemble ou design j’aime bien 🤩                                                </p>
+                                                    La simplicité li kayan fe ensemble ou design j’aime bien 🤩 </p>
                                                 <h5
                                                     class="u-align-right u-custom-font u-heading-font u-text u-text-black u-text-3">
                                                     ـ يحى العليوي
@@ -300,7 +300,8 @@
                                             class="u-container-style u-group u-radius-20 u-shape-round u-similar-fill u-white u-group-2">
                                             <div class="u-container-layout u-valign-middle u-container-layout-4">
                                                 <p class="u-align-left u-text u-text-black u-text-font u-text-4">
-                                                    ⭐ Qualité Zwina Tbarkalah ou ta tob skhon dyal had w9ita 3ajboni saraha ♥️
+                                                    ⭐ Qualité Zwina Tbarkalah ou ta tob skhon dyal had w9ita 3ajboni
+                                                    saraha ♥️
                                                 </p>
                                                 <h5
                                                     class="u-align-right u-custom-font u-heading-font u-text u-text-black u-text-5">
@@ -322,7 +323,7 @@
                                             class="u-container-style u-group u-radius-20 u-shape-round u-similar-fill u-white u-group-2">
                                             <div class="u-container-layout u-valign-middle u-container-layout-4">
                                                 <p class="u-align-left u-text u-text-black u-text-font u-text-4">
-                                                    أنا عجبتني لفصالا أو كيفاش مخدومين أونسومبل زوين بكل المقاييس🔥                                                </p>
+                                                    أنا عجبتني لفصالا أو كيفاش مخدومين أونسومبل زوين بكل المقاييس🔥 </p>
                                                 <h5
                                                     class="u-align-right u-custom-font u-heading-font u-text u-text-black u-text-5">
                                                     ـ سارة صابيري</h5>
@@ -512,25 +513,31 @@
                                                             <!-- Add more color options as needed -->
                                                         </select>
                                                     </div>
-													
-													
 
-													<div class="form-group is-required">
-														<label class="form-label">الحجم</label>
-														<select required
-																oninvalid="this.setCustomValidity('المرجو اختيار الحجم');"
-																onchange="try{setCustomValidity('')}catch(e){};"
-																x-moz-errormessage="المرجو اختيار الحجم"
-																name="product_size"
-																style="width: 100%;" id="product_size"
-																placeholder="الحجم">
-															<option value="">المرجو إختيار الحجم</option>
-															<option value="M">M</option>
-															<option value="L">L</option>
-															<option value="XL">XL</option>
-															<!-- Add more size options as needed -->
-														</select>
-													</div>
+
+
+
+                                                    <div class="form-group is-required"><label class="form-label">رقم
+                                                            الهاتف</label> <input required
+                                                            oninvalid="this.setCustomValidity('المرجو إدخال رقم الهاتف');"
+                                                            onchange="try{setCustomValidity('')}catch(e){};"
+                                                            x-moz-errormessage="المرجو إدخال رقم الهاتف" type="number"
+                                                            name="phone" placeholder="رقم الهاتف"></div>
+
+                                                    <div class="form-group is-required">
+                                                        <label class="form-label">الحجم</label>
+                                                        <select required
+                                                            oninvalid="this.setCustomValidity('المرجو اختيار الحجم');"
+                                                            onchange="try{setCustomValidity('')}catch(e){};"
+                                                            x-moz-errormessage="المرجو اختيار الحجم" name="product_size"
+                                                            style="width: 100%;" id="product_size" placeholder="الحجم">
+                                                            <option value="">المرجو إختيار الحجم</option>
+                                                            <option value="M">M</option>
+                                                            <option value="L">L</option>
+                                                            <option value="XL">XL</option>
+                                                            <!-- Add more size options as needed -->
+                                                        </select>
+                                                    </div>
                                                     <div class="form-group is-required"><label class="form-label">الأسم
                                                             الكامل</label> <input required
                                                             oninvalid="this.setCustomValidity('المرجو إدخال إسمك');"
@@ -538,12 +545,6 @@
                                                             x-moz-errormessage="المرجو إدخال إسمك" type="text"
                                                             name="fullname" placeholder="الأسم الكامل">
                                                     </div>
-                                                    <div class="form-group is-required"><label class="form-label">رقم
-                                                            الهاتف</label> <input required
-                                                            oninvalid="this.setCustomValidity('المرجو إدخال رقم الهاتف');"
-                                                            onchange="try{setCustomValidity('')}catch(e){};"
-                                                            x-moz-errormessage="المرجو إدخال رقم الهاتف" type="number"
-                                                            name="phone" placeholder="رقم الهاتف"></div>
                                                     <div class="form-group is-required"><label
                                                             class="form-label">العنوان</label> <input required
                                                             oninvalid="this.setCustomValidity('المرجو إدخال العنوان');"
