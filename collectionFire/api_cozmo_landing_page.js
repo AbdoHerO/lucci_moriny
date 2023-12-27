@@ -28,6 +28,7 @@ $("#formInfo").submit(function (event) {
     status: "pending",
     fees_shipping: "",
   };
+  
 
   // Insert into SheetDB API
   fetch("https://sheetdb.io/api/v1/7fx0hvcoif8ln", {
