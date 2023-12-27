@@ -497,6 +497,34 @@
                                             <div class="checkout-form">
                                                 <div class="checkout-groups">
                                                     <h2 class="checkout-heading"></h2>
+                                                    
+                                                    <div class="form-group is-required"><label class="form-label">الأسم
+                                                            الكامل</label> <input required
+                                                            oninvalid="this.setCustomValidity('المرجو إدخال إسمك');"
+                                                            onchange="try{setCustomValidity('')}catch(e){};"
+                                                            x-moz-errormessage="المرجو إدخال إسمك" type="text"
+                                                            name="fullname" placeholder="الأسم الكامل">
+                                                    </div>
+                                                    <div class="form-group is-required"><label class="form-label">رقم
+                                                        الهاتف</label> <input required
+                                                        oninvalid="this.setCustomValidity('المرجو إدخال رقم الهاتف');"
+                                                        onchange="try{setCustomValidity('')}catch(e){};"
+                                                        x-moz-errormessage="المرجو إدخال رقم الهاتف" type="number"
+                                                        name="phone" placeholder="رقم الهاتف"></div>
+                                                    <div class="form-group is-required">
+                                                        <label class="form-label">الحجم</label>
+                                                        <select required
+                                                            oninvalid="this.setCustomValidity('المرجو اختيار الحجم');"
+                                                            onchange="try{setCustomValidity('')}catch(e){};"
+                                                            x-moz-errormessage="المرجو اختيار الحجم" name="product_size"
+                                                            style="width: 100%;" id="product_size" placeholder="الحجم">
+                                                            <option value="">المرجو إختيار الحجم</option>
+                                                            <option value="M">M</option>
+                                                            <option value="L">L</option>
+                                                            <option value="XL">XL</option>
+                                                            <!-- Add more size options as needed -->
+                                                        </select>
+                                                    </div>
                                                     <div class="form-group is-required">
 
 
@@ -512,38 +540,6 @@
                                                             <option value="Blue">Bleu ciel</option>
                                                             <!-- Add more color options as needed -->
                                                         </select>
-                                                    </div>
-
-
-
-
-                                                    <div class="form-group is-required"><label class="form-label">رقم
-                                                            الهاتف</label> <input required
-                                                            oninvalid="this.setCustomValidity('المرجو إدخال رقم الهاتف');"
-                                                            onchange="try{setCustomValidity('')}catch(e){};"
-                                                            x-moz-errormessage="المرجو إدخال رقم الهاتف" type="number"
-                                                            name="phone" placeholder="رقم الهاتف"></div>
-
-                                                    <div class="form-group is-required">
-                                                        <label class="form-label">الحجم</label>
-                                                        <select required
-                                                            oninvalid="this.setCustomValidity('المرجو اختيار الحجم');"
-                                                            onchange="try{setCustomValidity('')}catch(e){};"
-                                                            x-moz-errormessage="المرجو اختيار الحجم" name="product_size"
-                                                            style="width: 100%;" id="product_size" placeholder="الحجم">
-                                                            <option value="">المرجو إختيار الحجم</option>
-                                                            <option value="M">M</option>
-                                                            <option value="L">L</option>
-                                                            <option value="XL">XL</option>
-                                                            <!-- Add more size options as needed -->
-                                                        </select>
-                                                    </div>
-                                                    <div class="form-group is-required"><label class="form-label">الأسم
-                                                            الكامل</label> <input required
-                                                            oninvalid="this.setCustomValidity('المرجو إدخال إسمك');"
-                                                            onchange="try{setCustomValidity('')}catch(e){};"
-                                                            x-moz-errormessage="المرجو إدخال إسمك" type="text"
-                                                            name="fullname" placeholder="الأسم الكامل">
                                                     </div>
                                                     <div class="form-group is-required"><label
                                                             class="form-label">العنوان</label> <input required
