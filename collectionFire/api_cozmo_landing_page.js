@@ -11,7 +11,7 @@ $("#formInfo").submit(function (event) {
   var phone = $('#formInfo input[name="phone"]').val();
   var adresse = $('#formInfo input[name="adresse"]').val();
   var product_size = $('#formInfo select[name="product_size"]').val();
-  var product_color = $('#formInfo select[name="service_type"]').val();
+  var product_color = $('#formInfo select[name="product_color"]').val();
 
   // Create the data object for SheetDB
   var sheetDBData = {
