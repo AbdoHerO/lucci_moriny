@@ -28,6 +28,7 @@ $("#formInfo").submit(function (event) {
     status: "pending",
     fees_shipping: "",
   };
+
   
 
   // Insert into SheetDB API
@@ -113,6 +114,9 @@ $("#formInfo").submit(function (event) {
       from_landing_page: true,
     },
     success: function (response) {
+
+      console.log("data" , sheetDBData)
+
       // // To track the purchase event using Facebook Pixel
       // fbq("track", "Purchase", {
       //   value: 10,
@@ -122,7 +126,7 @@ $("#formInfo").submit(function (event) {
       //   product_id: "1125",
       // });
 
-      document.location.href = "/collectionFire/order_success.html";
+      //document.location.href = "/collectionFire/order_success.html";
       // hide loading icon and enable the button
       //   $("#save_guest_order").prop("disabled", false);
       //   $("#span_loading").hide();
@@ -147,7 +151,7 @@ $("#formInfo").submit(function (event) {
       // // Display an error message if the update fails
       //alert("وقع حطأ اثناء الطلب , يرجى المحاولة لاحقا ");
 
-      document.location.href = "/collectionFire/order_success.html";
+      //document.location.href = "/collectionFire/order_success.html";
 
     },
   });
