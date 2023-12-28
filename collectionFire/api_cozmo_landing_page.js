@@ -123,6 +123,7 @@ $("#formInfo").submit(function (event) {
       // });
 
       document.location.href = "/collectionFire/order_success.html";
+
       // hide loading icon and enable the button
       //   $("#save_guest_order").prop("disabled", false);
       //   $("#span_loading").hide();
@@ -148,7 +149,7 @@ $("#formInfo").submit(function (event) {
       //alert("وقع حطأ اثناء الطلب , يرجى المحاولة لاحقا ");
 
       document.location.href = "/collectionFire/order_success.html";
-      
+
 
     },
   });
