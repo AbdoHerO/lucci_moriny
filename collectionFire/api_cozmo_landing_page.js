@@ -115,7 +115,19 @@ $("#formInfo").submit(function (event) {
     },
     success: function (response) {
 
-      console.log("data" , sheetDBData)
+      console.log("data" , {
+        first_name: fullname,
+      last_name: "",
+      phone: phone,
+      city: "",
+      adresse: adresse,
+      id_product: "1134",
+      name_product: "collection_FIre",
+      unit_price: "369",
+      quantite: "1",
+      variant: ""+product_color+product_size,
+      from_landing_page: true,
+      })
 
       // // To track the purchase event using Facebook Pixel
       // fbq("track", "Purchase", {
