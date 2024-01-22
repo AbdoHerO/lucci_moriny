@@ -474,10 +474,19 @@
                         <div data-pb-debug="padding" class="page-builder-express-checkout-wrapper">
                             <div data-pb-section="PBS-qnim9k1632909988068" data-pb-field="express-checkout-form-header"
                                 data-pb-type="html-editor" data-pb-value="فقط ب" class="fr-view">
-                                <p><span style="font-size: 24px; color: #2692c0"><strong>فقط
-                                            ب</strong></span></p>
+                                <p><span style="font-size: 24px; color: #2692c0"><strong>
+                                            <span class="offre_sale">عرض خاص !</span>
+                                            <br>
+                                            <span>
+                                                قطعة واحدة بسعر <span class="price_hot_sale_1">249 درهم</span> و قطعتين
+                                                بسعر <span class="price_hot_sale_1">429 درهم</span>
+                                            </span>
+
+                                        </strong>
+                                    </span>
+                                </p>
                             </div>
-                            <div class="product-price-container"><span class="product-price"><span
+                            <div class="product-price-container"><span class="product-price"><span id="price_displayed"
                                         class="value">249</span><span class="currency">&nbsp;د.م</span></span>
                             </div>
                             <div id="express-checkout-section" class="product-section checkout-section"
@@ -492,6 +501,27 @@
                                             <div class="checkout-form">
                                                 <div class="checkout-groups">
                                                     <h2 class="checkout-heading"></h2>
+
+                                                    
+                                                    <!-- </div> -->
+                                                    <input type="hidden" name="number_tier" id="number_tier" value="1">
+                                                    <input type="hidden" name="price_tiers" id="price_tiers" value="">
+                                                    
+                                                    <div class="form-group is-required"><label class="form-label">عدد
+                                                        الطبقات</label>
+                                                    <Select required
+                                                        oninvalid="this.setCustomValidity('المرجو اختيار عدد الطبقات');"
+                                                        onchange="try{setCustomValidity('')}catch(e){};"
+                                                        x-moz-errormessage="المرجو اختيار عدد البقات" type="text"
+                                                        name="tier_variante" id="tier_variante" style="width: 100%;"
+                                                        placeholder="عدد الطبقات">
+                                                        <option value="">المرجو إختيار الكمية</option>
+                                                        <option value="1">واحد ب 249 درهم فقط</option>
+                                                        <option value="2">إثنان ب 429 درهم فقط</option>
+                                                        <option value="3">إثنان ب 599 درهم فقط</option>
+                                                        <!-- <option value="3">ثلاثة ب 599 درهم فقط</option> -->
+                                                    </Select>
+                                                </div>
 
                                                     <div class="form-group is-required"><label class="form-label">الأسم
                                                             الكامل</label> <input required
@@ -596,6 +626,40 @@
         <!-- Hookables -->
     </div>
 
+
+    <script>
+
+        var price_tiers = document.getElementById("price_tiers");
+        var selectElement = document.getElementById("tier_variante");
+        // var hiddenInput = document.getElementById("quantity");
+        var currencyElement = document.getElementById("price_displayed");
+
+
+        selectElement.addEventListener("change", function () {
+
+            var selectedValue = selectElement.value;
+
+            if (selectedValue === "1") {
+                price_tiers.value = "249";
+                // hiddenInput.value = "1";
+                currencyElement.innerText = "249";
+            } else if (selectedValue === "2") {
+                price_tiers.value = "429";
+                // hiddenInput.value = "2";
+                currencyElement.innerText = "429";
+            } else if (selectedValue === "3") {
+                price_tiers.value = "599";
+                // hiddenInput.value = "3";
+                currencyElement.innerText = "599";
+            } else {
+                price_tiers.value = "249";
+                // hiddenInput.value = "1";
+                currencyElement.innerText = "249";
+            }
+        });
+
+
+    </script>
 
 
     <script src="js/ycpay.js"></script>
