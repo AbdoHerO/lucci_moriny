@@ -1,6 +1,6 @@
 window.addEventListener("load", function () {
-  $(".loader").hide();
-  $("body").removeClass("body_fixed");
+  // $(".loader").hide();
+  // $("body").removeClass("body_fixed");
 
   // To track the ViewContent event using TikTok Pixel
   ttq.track("ViewContent", {
@@ -17,6 +17,9 @@ window.addEventListener("load", function () {
     currency: "USD",
   });
 });
+
+$(".loader").hide();
+  $("body").removeClass("body_fixed");
 
 // document.addEventListener("DOMContentLoaded", function () {
 //     var loaderWrapper = document.getElementById("loader-wrapper");
