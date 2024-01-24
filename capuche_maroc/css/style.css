@@ -15,6 +15,24 @@
   z-index: 9999;
 }
 
+
+.price_hot_sale_1{
+  color: #32cd32;
+  font-size: 26px;
+}
+.price_hot_sale_2{
+  color: #32cd32;
+  font-size: 30px;
+  font-weight: bold;
+}
+.offre_sale{
+  color: #202020;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: normal;
+}
+
+
 .loader::after {
   content: "";
   display: block;
