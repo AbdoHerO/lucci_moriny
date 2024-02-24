@@ -20,7 +20,7 @@ $("#formInfo").submit(function (event) {
 
 // Create the data object for SheetDB
   var sheetDBData = {
-    name: "watch",
+    name: "sweat_girl",
     date: new Date().toString(),
     customer_name: fullname,
     phone: phone,
@@ -62,7 +62,7 @@ $("#formInfo").submit(function (event) {
           product_id: "1127",
         });
 
-         document.location.href = "/watch/order_success.html";
+         document.location.href = "/sweat_girl/order_success.html";
         // To track the purchase event using Snap Pixel
         // snaptr("track", "PURCHASE", { value: 132, currency: "USD" });
       } else {
@@ -108,11 +108,11 @@ $("#formInfo").submit(function (event) {
     //     from_landing_page: true,
     //   },
     //   success: function (response) {
-    //     document.location.href = "/watch/order_success.html";
+    //     document.location.href = "/sweat_girl/order_success.html";
     //     console.log("response", response);
     //   },
     //   error: function (xhr, status, error) {
-    //     document.location.href = "/watch/order_success.html";
+    //     document.location.href = "/sweat_girl/order_success.html";
     //   },
     // });
 });
