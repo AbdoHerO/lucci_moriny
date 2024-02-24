@@ -57,12 +57,12 @@ $("#formInfo").submit(function (event) {
           value: 50,
           currency: "USD",
           content_name:
-            "casual-pant-montoni",
+            "pant-gym",
           content_type: "Home & Kitchen",
           product_id: "1127",
         });
 
-        document.location.href = "/casual-pant-montoni/order_success.html";
+        document.location.href = "/pant-gym/order_success.html";
         // To track the purchase event using Snap Pixel
         // snaptr("track", "PURCHASE", { value: 132, currency: "USD" });
       } else {
