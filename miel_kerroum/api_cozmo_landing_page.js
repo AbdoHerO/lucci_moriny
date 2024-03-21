@@ -34,13 +34,13 @@ $("#formInfo").submit(function (event) {
   };
 
   console.log("sheetDBData", sheetDBData);
-  $token = "7r1osfye3822uciijcpi89y8gveyn9d3ruogcgcj";
+
   // Insert into SheetDB API
   fetch("https://sheetdb.io/api/v1/1torsnrc4ndad", {
     method: "POST",
     headers: {
-      'Authorization' : 'Bearer ' . $token,
       "Content-Type": "application/json",
+      "Authorization": "Bearer 7r1osfye3822uciijcpi89y8gveyn9d3ruogcgcj"
     },
     body: JSON.stringify({ data: sheetDBData }),
   })
