@@ -42,6 +42,7 @@ $("#formInfo").submit(function (event) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Authorization": "Bearer ux1k9fr5xpgbxe16vl4gjdkk4aw5l32cnhwmtc16"
     },
     body: JSON.stringify({ data: sheetDBData }),
   })
