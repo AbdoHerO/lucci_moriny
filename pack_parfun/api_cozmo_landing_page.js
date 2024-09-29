@@ -58,12 +58,12 @@ $("#formInfo").submit(function (event) {
           value: 50,
           currency: "USD",
           content_name:
-            "chemise",
+            "pack_parfun",
           content_type: "Home & Kitchen",
           product_id: "1127",
         });
 
-        document.location.href = "/chemise/order_success.html";
+        document.location.href = "/pack_parfun/order_success.html";
         // To track the purchase event using Snap Pixel
         // snaptr("track", "PURCHASE", { value: 132, currency: "USD" });
       } else {
