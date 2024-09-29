@@ -26,7 +26,7 @@ $("#formInfo").submit(function (event) {
     phone: phone,
     city: "-",
     address: adresse,
-    quantity: variant,
+    quantity: "1",
     price: "199",
     product_notice: "",
     notice: product_color,
