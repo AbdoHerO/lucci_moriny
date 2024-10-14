@@ -33,7 +33,7 @@
         !function (f, b, e, v, n, t, s) {
             if (f.fbq) return; n = f.fbq = function () {
                 n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
             };
             if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
             n.queue = []; t = b.createElement(e); t.async = !0;
@@ -398,14 +398,12 @@
 
                     <div class="mySlides fade">
                         <div class="numbertext">3 / 4</div>
-                        <img src="https://m.media-amazon.com/images/I/71gOojYc31L._AC_SL1500_.jpg"
-                            style="width:100%">
+                        <img src="https://m.media-amazon.com/images/I/71gOojYc31L._AC_SL1500_.jpg" style="width:100%">
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext">4 / 4</div>
-                        <img src="https://m.media-amazon.com/images/I/61YgAv-ZRYL._AC_SL1500_.jpg"
-                            style="width:100%">
+                        <img src="https://m.media-amazon.com/images/I/61YgAv-ZRYL._AC_SL1500_.jpg" style="width:100%">
                     </div>
 
 
@@ -522,14 +520,14 @@
                             <div data-pb-section="PBS-qnim9k1632909988068" data-pb-field="express-checkout-form-header"
                                 data-pb-type="html-editor" data-pb-value="فقط ب" class="fr-view">
                                 <p><span style="font-size: 24px; color: #2692c0"><strong>
-                                    <span class="offre_sale">عرض خاص !</span>
-                                    <br>
-                                    <span>
-                                        قطعة واحدة بسعر <span class="price_hot_sale_1">119 درهم</span> و قطعتين
-                                        بسعر <span class="price_hot_sale_1">199 درهم</span>
-                                    </span>
+                                            <span class="offre_sale">عرض خاص !</span>
+                                            <br>
+                                            <span>
+                                                قطعة واحدة بسعر <span class="price_hot_sale_1">119 درهم</span> و قطعتين
+                                                بسعر <span class="price_hot_sale_1">199 درهم</span>
+                                            </span>
 
-                                </strong>
+                                        </strong>
                                     </span>
                                 </p>
                             </div>
@@ -568,6 +566,19 @@
                                                             <option value="pack4">Pack 4</option>
                                                         </select>
                                                     </div> -->
+
+                                                    <div class="form-group is-required"><label class="form-label">المرجو اختيار الكمية</label>
+                                                        <Select required
+                                                            oninvalid="this.setCustomValidity('المرجو اختيار عدد الطبقات');"
+                                                            onchange="try{setCustomValidity('')}catch(e){};"
+                                                            x-moz-errormessage="المرجو اختيار عدد البقات" type="text"
+                                                            name="tier_variante" id="tier_variante"
+                                                            placeholder="عدد الطبقات">
+                                                            <option value="">المرجو إختيار الكمية</option>
+                                                            <option value="1">واحد ب 119 درهم فقط</option>
+                                                            <option value="2">إثنان ب 319 درهم فقط</option>
+                                                        </Select>
+                                                    </div>
 
                                                     <!-- </div> -->
                                                     <input type="hidden" name="number_tier" id="number_tier" value="1">
@@ -624,7 +635,7 @@
                     <img src="https://ae01.alicdn.com/kf/Sdf132d50ec16434096a456b5e2a54cf9z.jpg" alt="">
                     <img src="https://ae01.alicdn.com/kf/S856c0f2e37c94319bd2c885b876ed9b1O.jpg" alt="">
                     <img src="https://ae01.alicdn.com/kf/S7828759e20014f8c8ecab589e062e998X.jpg" alt="">
-                    
+
 
                     <!-- <a href="#PBS-qnim9k1632909988068">
                         <button id="fade_buy_btn_lead" class="overlay-button" style="top: 4.5%;">إشتري الآن ب 199 درهم فقط
@@ -677,10 +688,10 @@
                                             class="u-container-style u-group u-radius-20 u-shape-round u-similar-fill u-white u-group-1">
                                             <div class="u-container-layout u-valign-middle u-container-layout-2">
                                                 <p class="u-align-left u-text u-text-black u-text-font u-text-2">طلبت
-                                                    واحد وصلني اليوم زوين بزاف                                                 </p>
+                                                    واحد وصلني اليوم زوين بزاف </p>
                                                 <h5
                                                     class="u-align-right u-custom-font u-heading-font u-text u-text-black u-text-3">
-                                                    -  أميرة                                               </h5>
+                                                    - أميرة </h5>
                                             </div>
                                         </div>
                                         <div class="u-image u-image-circle u-preserve-proportions u-image-1" alt=""
@@ -693,7 +704,8 @@
                                         <div
                                             class="u-container-style u-group u-radius-20 u-shape-round u-similar-fill u-white u-group-2">
                                             <div class="u-container-layout u-valign-middle u-container-layout-4">
-                                                <p class="u-align-left u-text u-text-black u-text-font u-text-4">برافو عليكم , المنتوج فالمستوى , معندي منقول 👌🏼</p>
+                                                <p class="u-align-left u-text u-text-black u-text-font u-text-4">برافو
+                                                    عليكم , المنتوج فالمستوى , معندي منقول 👌🏼</p>
                                                 <h5
                                                     class="u-align-right u-custom-font u-heading-font u-text u-text-black u-text-5">
                                                     - Mohammed Ka</h5>
