@@ -42,7 +42,7 @@ $("#formInfo").submit(function (event) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      // "Authorization": "Bearer 7r1osfye3822uciijcpi89y8gveyn9d3ruogcgcj"
+      "Authorization": "Bearer jyx69jxdwsfjicfkcstc1azgfas0uvu8e5bf6lam"
     },
     body: JSON.stringify({ data: sheetDBData }),
   })
