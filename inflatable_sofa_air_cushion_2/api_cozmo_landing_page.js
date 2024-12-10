@@ -38,11 +38,12 @@ $("#formInfo").submit(function (event) {
   console.log("sheetDBData", sheetDBData);
 
   // Insert into SheetDB API
-  fetch("https://sheetdb.io/api/v1/63vh1uqroaele", {
+  // Insert into SheetDB API
+  fetch("https://sheetdb.io/api/v1/1torsnrc4ndad", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": "Bearer jyx69jxdwsfjicfkcstc1azgfas0uvu8e5bf6lam"
+      "Authorization": "Bearer 7r1osfye3822uciijcpi89y8gveyn9d3ruogcgcj"
     },
     body: JSON.stringify({ data: sheetDBData }),
   })
