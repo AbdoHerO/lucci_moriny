@@ -20,19 +20,19 @@ $("#formInfo").submit(function (event) {
 
 // Create the data object for SheetDB
   var sheetDBData = {
-    name: "chemise_simple",
+    name: "casual-pant-montoni",
     date: new Date().toString(),
     customer_name: fullname,
     phone: phone,
     city: "-",
     address: adresse,
     quantity: variant,
-    price: price,
+    price: price + " Dh",
     product_notice: "",
     notice: "Color: " + product_color,
     status: "pending",
     fees_shipping: "",
-	  size: product_size,
+	size: product_size,
   };
 
   console.log("sheetDBData", sheetDBData);
@@ -58,12 +58,12 @@ $("#formInfo").submit(function (event) {
           value: 50,
           currency: "USD",
           content_name:
-            "chemise_simple",
+            "casual-pant-classe",
           content_type: "Home & Kitchen",
           product_id: "1127",
         });
 
-        document.location.href = "/chemise_simple/order_success.html";
+        document.location.href = "/casual-pant-classe/order_success.html";
         // To track the purchase event using Snap Pixel
         // snaptr("track", "PURCHASE", { value: 132, currency: "USD" });
       } else {
