@@ -168,16 +168,16 @@ document.addEventListener("DOMContentLoaded", function () {
         // atlas livraison
         var sheetDBData = {
             date: new Date().toString(),
-            Destinataire: fullname,
-            Téléphone: phone,
-            Ville: "-", // or set a default
-            Adresse: adresse,
-            Prix: total.toString(),
-            'Produit (si plusieurs separer les avec " , ")': "Pant Classe",
-            "ID Intern": "",
-            "Change (0/1)": "0",
-            "Ouvrir Colis (0/1)": "1",
-            "Essayage (0/1)": "1",
+            destinataire: fullname,
+            telephone: phone,
+            ville: "-", // or set a default
+            adresse: adresse,
+            prix: total.toString(),
+            produit: "Pant Classe",
+            id_intern: "",
+            change: "0",
+            ouvrir_colis: "1",
+            essayage: "1",
             quantity: quantity,
             color: colorsString,
             size: sizesString,
