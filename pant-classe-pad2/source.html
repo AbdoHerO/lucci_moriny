@@ -24,102 +24,7 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
 
 
-        <style>
-      
-            .pack-container {
-                background: #fff;
-                border: 1px solid #ddd;
-                border-radius: 8px;
-                margin-bottom: 20px;
-                padding: 20px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            }
-    
-            .pack-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                cursor: pointer;
-            }
-    
-            .quantity {
-                background-color: #000;
-                color: #fff;
-                padding: 5px 10px;
-                border-radius: 50%;
-                font-weight: bold;
-            }
-    
-            .title {
-                font-size: 20px;
-                font-weight: bold;
-            }
-    
-            .price {
-                font-size: 18px;
-                color: #333;
-                margin: 10px 0;
-            }
-    
-            .product-row {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin: 10px 0;
-            }
-    
-            .product-row label {
-                flex: 1;
-            }
-    
-            .product-row select {
-                flex: 2;
-                padding: 10px;
-                border: 1px solid #ddd;
-                border-radius: 4px;
-            }
-    
-            .form-group {
-                margin-top: 20px;
-            }
-    
-            .form-control {
-                margin-bottom: 15px;
-            }
-    
-            .form-control label {
-                display: block;
-                margin-bottom: 5px;
-                font-weight: bold;
-            }
-    
-            .form-control input,
-            .form-control select {
-                width: 100%;
-                padding: 10px;
-                border: 1px solid #ddd;
-                border-radius: 4px;
-            }
-    
-            button {
-                background-color: #28a745;
-                color: #fff;
-                padding: 10px 20px;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-                font-size: 16px;
-            }
-    
-            button:hover {
-                background-color: #218838;
-            }
-    
-            .pack-details {
-                display: none; /* Masquer les détails au début */
-            }
-        </style>
-    
+   
 	<!-- hide sticky button-->
 	<script>
         window.addEventListener('scroll', function() {
@@ -159,7 +64,7 @@
             s.parentNode.insertBefore(t, s)
         }(window, document, 'script',
             'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '303561535711187');
+        fbq('init', '640658465078889');
         fbq('track', 'PageView');
     </script>
 
@@ -622,163 +527,23 @@
                                     <div class="main">
                                         <div >
                                             <form method="post" enctype="multipart/form-data" id="formInfo">
-                                                <!-- Pack x1 -->
-                                                <div class="pack-container">
-                                                    <div class="pack-header">
-                                                        <div class="quantity">x1</div>
-                                                        <div class="title">PACK x1 à 179 MAD</div>
-                                                    </div>
-                                                    <div class="pack-details">
-                                                        <div class="price">179.00 درهم</div>
-                                                        <input type="hidden" name="pack_1" value="179 MAD">
-                                                        <div class="product-row">
-                                                            <label for="product_color_1">لون المنتج</label>
-                                                            <select id="product_color_1" name="product_color_1">
-                                                                <option value="">إختيار اللون</option>
-                                                                <option value="Black">أسود</option>
-                                                                <option value="LightGrey">رمادي</option>
-                                                                <option value="SteelBlue">أزرق</option>
-                                                                <option value="Green">اخضر</option>
-                                                            </select>
-                                                            <label for="product_size_1">الحجم</label>
-                                                            <select id="product_size_1" name="product_size_1">
-                                                                <option value="">إختيار الحجم</option>
-                                                                <option value="S">S (28-30)</option>
-                                                                <option value="M">M (32)</option>
-                                                                <option value="L">L (34)</option>
-                                                                <option value="XL">XL (36)</option>
-                                                                <option value="XXL">XXL (38-40)</option>
-                                                                <option value="XXXL">XXXL (42-46)</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
+                                                <input type="hidden" name="id" value="cc83bb80-0d63-40cc-81f5-ba7093419793">
+                                                <input type="hidden" name="quantity" value="1">
+                                                <input type="text" name="extra_payload" style="display: none;">
+                                                
+                                                <div class="card-header">
+                                                    <span><span class="badge" id="quantity-badge">x1</span>اشتري <span id="quantity-text">1</span> منتج</span>
+                                                    <span class="price" id="total-price">179.00 درهم</span>
                                                 </div>
-                                        
-                                                <!-- Pack x2 -->
-                                                <div class="pack-container">
-                                                    <div class="pack-header">
-                                                        <div class="quantity">x2</div>
-                                                        <div class="title">PACK x2 à 249 MAD</div>
-                                                    </div>
-                                                    <div class="pack-details">
-                                                        <div class="price">249.00 درهم</div>
-                                                        <input type="hidden" name="pack_2" value="249 MAD">
-                                                        <div class="product-row">
-                                                            <label for="product_color_2_1">لون المنتج</label>
-                                                            <select id="product_color_2_1" name="product_color_2_1">
-                                                                <option value="">إختيار اللون</option>
-                                                                <option value="Black">أسود</option>
-                                                                <option value="LightGrey">رمادي</option>
-                                                                <option value="SteelBlue">أزرق</option>
-                                                                <option value="Green">اخضر</option>
-                                                            </select>
-                                                            <label for="product_size_2_1">الحجم</label>
-                                                            <select id="product_size_2_1" name="product_size_2_1">
-                                                                <option value="">إختيار الحجم</option>
-                                                                <option value="S">S (28-30)</option>
-                                                                <option value="M">M (32)</option>
-                                                                <option value="L">L (34)</option>
-                                                                <option value="XL">XL (36)</option>
-                                                                <option value="XXL">XXL (38-40)</option>
-                                                                <option value="XXXL">XXXL (42-46)</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="product-row">
-                                                            <label for="product_color_2_2">لون المنتج</label>
-                                                            <select id="product_color_2_2" name="product_color_2_2">
-                                                                <option value="">إختيار اللون</option>
-                                                                <option value="Black">أسود</option>
-                                                                <option value="LightGrey">رمادي</option>
-                                                                <option value="SteelBlue">أزرق</option>
-                                                                <option value="Green">اخضر</option>
-                                                            </select>
-                                                            <label for="product_size_2_2">الحجم</label>
-                                                            <select id="product_size_2_2" name="product_size_2_2">
-                                                                <option value="">إختيار الحجم</option>
-                                                                <option value="S">S (28-30)</option>
-                                                                <option value="M">M (32)</option>
-                                                                <option value="L">L (34)</option>
-                                                                <option value="XL">XL (36)</option>
-                                                                <option value="XXL">XXL (38-40)</option>
-                                                                <option value="XXXL">XXXL (42-46)</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
+                                                
+                                                <div class="quantity-selector">
+                                                    <div class="quantity-option selected" data-quantity="1" data-price="179">واحد</div>
+                                                    <div class="quantity-option" data-quantity="2" data-price="249">إثنان</div>
+                                                    <div class="quantity-option" data-quantity="3" data-price="349">ثلاثة</div>
                                                 </div>
-                                        
-                                                <!-- Pack x3 -->
-                                                <div class="pack-container">
-                                                    <div class="pack-header">
-                                                        <div class="quantity">x3</div>
-                                                        <div class="title">PACK x3 à 349 MAD</div>
-                                                    </div>
-                                                    <div class="pack-details">
-                                                        <div class="price">349.00 درهم</div>
-                                                        <input type="hidden" name="pack_3" value="349 MAD">
-                                                        <div class="product-row">
-                                                            <label for="product_color_3_1">لون المنتج</label>
-                                                            <select id="product_color_3_1" name="product_color_3_1">
-                                                                <option value="">إختيار اللون</option>
-                                                                <option value="Black">أسود</option>
-                                                                <option value="LightGrey">رمادي</option>
-                                                                <option value="SteelBlue">أزرق</option>
-                                                                <option value="Green">اخضر</option>
-                                                            </select>
-                                                            <label for="product_size_3_1">الحجم</label>
-                                                            <select id="product_size_3_1" name="product_size_3_1">
-                                                                <option value="">إختيار الحجم</option>
-                                                                <option value="S">S (28-30)</option>
-                                                                <option value="M">M (32)</option>
-                                                                <option value="L">L (34)</option>
-                                                                <option value="XL">XL (36)</option>
-                                                                <option value="XXL">XXL (38-40)</option>
-                                                                <option value="XXXL">XXXL (42-46)</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="product-row">
-                                                            <label for="product_color_3_2">لون المنتج</label>
-                                                            <select id="product_color_3_2" name="product_color_3_2">
-                                                                <option value="">إختيار اللون</option>
-                                                                <option value="Black">أسود</option>
-                                                                <option value="LightGrey">رمادي</option>
-                                                                <option value="SteelBlue">أزرق</option>
-                                                                <option value="Green">اخضر</option>
-                                                            </select>
-                                                            <label for="product_size_3_2">الحجم</label>
-                                                            <select id="product_size_3_2" name="product_size_3_2">
-                                                                <option value="">إختيار الحجم</option>
-                                                                <option value="S">S (28-30)</option>
-                                                                <option value="M">M (32)</option>
-                                                                <option value="L">L (34)</option>
-                                                                <option value="XL">XL (36)</option>
-                                                                <option value="XXL">XXL (38-40)</option>
-                                                                <option value="XXXL">XXXL (42-46)</option>
-                                                            </select>
-                                                        </div>
-                                                        <div class="product-row">
-                                                            <label for="product_color_3_3">لون المنتج</label>
-                                                            <select id="product_color_3_3" name="product_color_3_3">
-                                                                <option value="">إختيار اللون</option>
-                                                                <option value="Black">أسود</option>
-                                                                <option value="LightGrey">رمادي</option>
-                                                                <option value="SteelBlue">أزرق</option>
-                                                                <option value="Green">اخضر</option>
-                                                            </select>
-                                                            <label for="product_size_3_3">الحجم</label>
-                                                            <select id="product_size_3_3" name="product_size_3_3">
-                                                                <option value="">إختيار الحجم</option>
-                                                                <option value="S">S (28-30)</option>
-                                                                <option value="M">M (32)</option>
-                                                                <option value="L">L (34)</option>
-                                                                <option value="XL">XL (36)</option>
-                                                                <option value="XXL">XXL (38-40)</option>
-                                                                <option value="XXXL">XXXL (42-46)</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                        
-                                                <!-- Champs pour le nom, le téléphone et l'adresse en arabe -->
+                                                
+                                                <div id="products-container"></div>
+                                                
                                                 <div class="form-group">
                                                     <div class="form-control">
                                                         <label for="fullname">الإسم الكامل</label>
@@ -789,98 +554,16 @@
                                                         <input type="tel" id="phone" name="phone" pattern="0[678]\d{8}" required>
                                                     </div>
                                                 </div>
+                                                
                                                 <div class="form-group">
                                                     <div class="form-control" style="width: 100%;">
                                                         <label for="adresse">العنوان</label>
                                                         <input type="text" id="adresse" name="adresse" required>
                                                     </div>
                                                 </div>
-                                        
-                                                <!-- Champ caché pour la quantité -->
-                                                <input type="hidden" id="qte" name="qte" value="">
-                                        
+                                                
+                                              
                                             </form>
-                                        
-                                         <!-- <script>
-                                            
-document.addEventListener("DOMContentLoaded", function () {
-    const packHeaders = document.querySelectorAll('.pack-header');
-
-    packHeaders.forEach(header => {
-        header.addEventListener('click', function () {
-            const packDetails = header.nextElementSibling;
-            // Fermer les détails d'autres packs
-            document.querySelectorAll('.pack-details').forEach(details => {
-                if (details !== packDetails) {
-                    details.style.display = 'none';
-                }
-            });
-            // Basculer l'affichage du pack sélectionné
-            packDetails.style.display = packDetails.style.display === 'block' ? 'none' : 'block';
-        });
-    });
-
-    document.getElementById('submitBtn').addEventListener('click', function (event) {
-        event.preventDefault();
-        const form = document.getElementById('formInfo');
-        const formData = new FormData(form);
-        const data = {};
-        let colors = [];
-        let sizes = [];
-        let total = 0;
-        let qte = 0;
-
-        formData.forEach((value, key) => {
-            if (key.startsWith('product_color') && value !== "") {
-                colors.push(value);
-            } else if (key.startsWith('product_size') && value !== "") {
-                sizes.push(value);
-            } else if (key.startsWith('pack_')) {
-                // Ne pas ajouter au total ici
-            } else {
-                data[key] = value;
-            }
-        });
-
-        // Calculer le total basé sur les packs sélectionnés
-        if (document.querySelector('.pack-details[style*="display: block"]')) {
-            const packDetailsVisible = document.querySelector('.pack-details[style*="display: block"]');
-            const packHeader = packDetailsVisible.previousElementSibling.querySelector('.title').textContent;
-            let packPrice;
-
-            switch (packHeader) {
-                case 'PACK x1 à 179 MAD':
-                    packPrice = 179;
-                    qte = 1;
-                    break;
-                case 'PACK x2 à 249 MAD':
-                    packPrice = 249;
-                    qte = 2;
-                    break;
-                case 'PACK x3 à 349 MAD':
-                    packPrice = 349;
-                    qte = 3;
-                    break;
-                default:
-                    packPrice = 0;
-            }
-
-            total += packPrice; // Ajouter le prix du pack visible
-        }
-
-        // Afficher le total
-        data['colors'] = colors.join(', ');
-        data['sizes'] = sizes.join(', ');
-        data['total'] = total.toFixed(2); // Arrondir à deux décimales
-        data['qte'] = qte;
-
-        console.log('Form Data:', data);
-        alert('Le montant total est: ' + total + ' MAD');
-    });
-});
-
-                                         </script> -->
-                                        
                                         </div>
                                     
                                       
@@ -1182,14 +865,15 @@ document.addEventListener("DOMContentLoaded", function () {
         <!-- App footer -->
         <!-- Hookables -->
     </div>
-    <script src="api2.js"></script>
+    
     <script src="js/slides.js"></script>
+<script src="js/form.js"></script>
     <script src="js/ycpay.js"></script>
     <script src="js/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
         integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
+    <script src="api_cozmo_landing_page.js"></script>
     <script src="js/countdown.js"></script>
     <script src="js/faq.js"></script>
     <script src="js/loarder_wrapper.js"></script>
