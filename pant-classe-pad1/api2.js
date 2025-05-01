@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              "Authorization": "Bearer 7r1osfye3822uciijcpi89y8gveyn9d3ruogcgcj"
+              "Authorization": "Bearer c4pbl6r3lwr8r0bossphcnv02tpic1dqlp40ifla"
             },
             body: JSON.stringify({ data: sheetDBData }),
           })
