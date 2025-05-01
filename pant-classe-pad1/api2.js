@@ -131,41 +131,65 @@ document.addEventListener("DOMContentLoaded", function () {
         const colorsString = colors.join(', ');
         const sizesString = sizes.join(', ');
 
+        // // cathedis
+        // var sheetDBData = {
+        //   marchandise : "Pant Classe",
+        //   client : fullname,
+        //   tlphone : phone,
+        //   ville : "-",
+        //   secteur : "Centre Ville",
+        //   adresse : adresse,
+        //   type : "Livraison CRBT",
+        //   mode_paiement : "ESPECES",
+        //   montant : totalPrice.substring(0, 3),
+        //   caution : "0",
+        //   n_cmd : "",
+        //   poids : "Entre 1.2 Kg et 5 Kg",
+        //   fragile : "0",
+        //   declare_value_dh : "",
+        //   valeur_du_poids_kg : "",
+        //   profondeur_en_cm : "",
+        //   longueur_en_cm : "",
+        //   largeur_en_cm : "",
+        //   commentaire : "",
+        //   autoriser_ouverture : "1",
+        //   nbre_de_colis : "1",
+        //   numero_tel_a_notifier : "",
+        //   tag : "",
+        //   quantity: quantity,
+        //   color: colorsString,
+        //   size: sizesString,
+        //   createdAt: formattedDate,
+        //   status: "en cours",
+        //   trafic: trafic_name,
+        // };
+
+
+        // atlas livraison
         var sheetDBData = {
-            marchandise: "Pant Classe",
-            client: fullname,
-            tlphone: phone,
-            ville: "-",
-            secteur: "Centre Ville",
-            adresse: adresse,
-            type: "Livraison CRBT",
-            mode_paiement: "ESPECES",
-            montant: total.toString(),
-            caution: "0",
-            n_cmd: "",
-            poids: "Entre 1.2 Kg et 5 Kg",
-            fragile: "0",
-            declare_value_dh: "",
-            valeur_du_poids_kg: "",
-            profondeur_en_cm: "",
-            longueur_en_cm: "",
-            largeur_en_cm: "",
-            commentaire: "",
-            autoriser_ouverture: "1",
-            nbre_de_colis: "1",
-            numero_tel_a_notifier: "",
-            tag: "",
-            quantity: quantity.toString(),
+            date: new Date().toString(),
+            Destinataire: fullname,
+            Téléphone: phone,
+            Ville: "-", // or set a default
+            Adresse: adresse,
+            Prix: totalPrice.substring(0, 3),
+            'Produit (si plusieurs separer les avec " , ")': "Pant Classe",
+            "ID Intern": "",
+            "Change (0/1)": "0",
+            "Ouvrir Colis (0/1)": "1",
+            "Essayage (0/1)": "1",
+            quantity: quantity,
             color: colorsString,
             size: sizesString,
             createdAt: formattedDate,
+            montant : totalPrice.substring(0, 3),
             status: "en cours",
             trafic: trafic_name,
         };
 
         console.log("sheetDBData", sheetDBData);
 
-        fetch("https://sheetdb.io/api/v1/1torsnrc4ndad", {
+        fetch("https://sheetdb.io/api/v1/0tjsq029vh1s9", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
