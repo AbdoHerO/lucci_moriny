@@ -118,6 +118,127 @@
             .pack-details {
                 display: none; /* Masquer les détails au début */
             }
+
+
+            /* Style of related products */
+            .related-products-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+                margin: 20px auto;
+                max-width: 1200px;
+                padding: 0 15px;
+            }
+            
+            .related-product {
+                width: 100%;
+                max-width: 350px;
+                background: #fff;
+                border-radius: 10px;
+                overflow: hidden;
+                box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            
+            .related-product:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            }
+            
+            .product-image {
+                height: 300px;
+                overflow: hidden;
+            }
+            
+            .product-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.5s ease;
+            }
+            
+            .related-product:hover .product-image img {
+                transform: scale(1.05);
+            }
+            
+            .product-info {
+                padding: 15px;
+                text-align: center;
+            }
+            
+            .product-title {
+                font-size: 18px;
+                font-weight: 700;
+                margin-bottom: 10px;
+                color: #333;
+            }
+            
+            .product-description {
+                font-size: 14px;
+                color: #666;
+                margin-bottom: 15px;
+                line-height: 1.5;
+            }
+            
+            .product-price {
+                font-size: 20px;
+                font-weight: 700;
+                color: #2692c0;
+                margin-bottom: 15px;
+            }
+            
+            .product-button {
+                display: inline-block;
+                background-color: #2692c0 !important;
+                color: #fff;
+                padding: 10px 25px;
+                border-radius: 5px;
+                text-decoration: none;
+                font-weight: 600;
+                transition: background-color 0.3s ease;
+            }
+            
+            .product-button:hover {
+                background-color: #1a7ba3;
+            }
+            
+            @media (max-width: 768px) {
+                .related-products-container {
+                    gap: 15px;
+                }
+                
+                .related-product {
+                    max-width: 100%;
+                }
+                
+                .product-image {
+                    height: 250px;
+                }
+            }
+            
+            /* Style spécifique pour la section */
+            .PBS-related-products {
+                background: linear-gradient(to bottom, #f8f8f8, #fff);
+                padding: 30px 0;
+                margin: 20px 0;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .PBS-related-products .title-section-text {
+                font-size: 24px;
+                color: #2692c0;
+                font-weight: 700;
+                text-decoration: none;
+            }
+            
+            .PBS-related-products .subtitle-section-content {
+                font-size: 16px;
+                color: #666;
+                margin-top: 5px;
+            }
+
         </style>
     
 	<!-- hide sticky button-->
@@ -831,6 +952,55 @@
                         </button>
                     </a>
                 </div>
+
+                <section id="PBS-related-products" class="section page-section title-section PBS-related-products">
+                    <div class="inner-container">
+                        <div class="inner-title" data-pb-debug="margin padding">
+                            <div class="fr-view">
+                                <p class="title-section-content">
+                                    <span class="title-section-stylish"></span>
+                                    <a href="" target="_blank" class="title-section-text" 
+                                       data-pb-section="PBS-related-products" data-pb-field="text"
+                                       data-pb-type="text" data-pb-value="منتجات ذات صلة">
+                                        منتجات ذات صلة
+                                    </a>
+                                </p>
+                            </div>
+                            <div class="subtitle-holder" data-pb-debug="margin" style="position: relative">
+                                <p class="subtitle-section-content" data-pb-section="PBS-related-products"
+                                   data-pb-field="subtitle" data-pb-type="text" data-pb-value="">
+                                    تسوق أيضا هذه المنتجات المميزة
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="related-products-container">
+                        <div class="related-product">
+                            <div class="product-image">
+                                <img src="https://lucci-moriny.sirv.com/Images/IMG-20240704-WA0006.jpg" alt="قميص أنيق مرن">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">قميص أنيق مرن</h3>
+                                <p class="product-description">قميص كلاسيكي أنيق بقماش مرن عالي الجودة مناسب للمناسبات الرسمية</p>
+                                <div class="product-price">229 درهم</div>
+                                <a href="https://lucci.moriny.com/chemise_simple/" class="product-button" target="_blank">اطلب الآن</a>
+                            </div>
+                        </div>
+                        
+                        <div class="related-product">
+                            <div class="product-image">
+                                <img src="https://lucci-moriny.sirv.com/Images/noir-blanc01.jpg" alt="حذاء كلاسيكي أنيق">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">حذاء كلاسيكي أنيق</h3>
+                                <p class="product-description">حذاء رياضي بتصميم كلاسيكي أنيق مريح للاستخدام اليومي</p>
+                                <div class="product-price">299 درهم</div>
+                                <a href="https://lucci.moriny.com/shoes_sport/" class="product-button" target="_blank">اطلب الآن</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
                 <section id="PBS-lhtsfb1661723616426"
                     class="section page-section title-section PBS-lhtsfb1661723616426">
