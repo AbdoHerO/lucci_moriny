@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", function () {
             Téléphone: phone,
             Ville: "-", // or set a default
             Adresse: adresse,
-            Prix: totalPrice.substring(0, 3),
+            Prix: total.toString(),
             'Produit (si plusieurs separer les avec " , ")': "Pant Classe",
             "ID Intern": "",
             "Change (0/1)": "0",
@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", function () {
             color: colorsString,
             size: sizesString,
             createdAt: formattedDate,
-            montant : totalPrice.substring(0, 3),
+            montant : total.toString(),
             status: "en cours",
             trafic: trafic_name,
         };
