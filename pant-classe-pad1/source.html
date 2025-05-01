@@ -24,8 +24,31 @@
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
 
 
-    <link href="css/root.css" rel="stylesheet">
-    <link href="css/store_font.css" rel="stylesheet">
+   
+	<!-- hide sticky button-->
+	<script>
+        window.addEventListener('scroll', function() {
+            const stickyButton = document.getElementById('fade_buy_btn_lead');
+            const targetSection = document.getElementById('PBS-qnim9k1632909988068');
+            const sectionTop = targetSection.getBoundingClientRect().top;
+            const sectionBottom = targetSection.getBoundingClientRect().bottom;
+
+            if (sectionTop <= window.innerHeight && sectionBottom >= 0) {
+                stickyButton.classList.add('hidden');
+            } else {
+                stickyButton.classList.remove('hidden');
+            }
+        });
+    </script>
+	
+	<script>
+        !function (w, d, t) {
+            w.TiktokAnalyticsObject = t; var ttq = w[t] = w[t] || []; ttq.methods = ["page", "track", "identify", "instances", "debug", "on", "off", "once", "ready", "alias", "group", "enableCookie", "disableCookie"], ttq.setAndDefer = function (t, e) { t[e] = function () { t.push([e].concat(Array.prototype.slice.call(arguments, 0))) } }; for (var i = 0; i < ttq.methods.length; i++)ttq.setAndDefer(ttq, ttq.methods[i]); ttq.instance = function (t) { for (var e = ttq._i[t] || [], n = 0; n < ttq.methods.length; n++)ttq.setAndDefer(e, ttq.methods[n]); return e }, ttq.load = function (e, n) { var i = "https://analytics.tiktok.com/i18n/pixel/events.js"; ttq._i = ttq._i || {}, ttq._i[e] = [], ttq._i[e]._u = i, ttq._t = ttq._t || {}, ttq._t[e] = +new Date, ttq._o = ttq._o || {}, ttq._o[e] = n || {}; var o = document.createElement("script"); o.type = "text/javascript", o.async = !0, o.src = i + "?sdkid=" + e + "&lib=" + t; var a = document.getElementsByTagName("script")[0]; a.parentNode.insertBefore(o, a) };
+
+            ttq.load('CM08HVJC77U7MRPGKD5G');
+            ttq.page();
+        }(window, document, 'ttq');
+    </script>
 
     <!-- <script src="js/fbevents.js"></script> -->
 
@@ -44,6 +67,14 @@
         fbq('init', '640658465078889');
         fbq('track', 'PageView');
     </script>
+
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NPZSKMPJ');</script>
+    <!-- End Google Tag Manager -->
 
     <script>
         // Disable right-click
@@ -81,14 +112,53 @@
         });
 
     </script>
+    <!--<script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var colorSelect = document.getElementById("product_color");
+            var sizeSelect = document.getElementById("product_size");
+            var orderButton = document.getElementById("save_guest_order");
+
+            function checkAvailability() {
+                var selectedColor = colorSelect.value;
+                var selectedSize = sizeSelect.value;
+
+                // Vérifiez si la couleur est "LightGrey" et la taille est "M" ou "L"
+                if (selectedColor === "LightGrey") {
+                    // Désactivez le bouton de commande et affichez un message
+                    orderButton.disabled = true;
+                    colorSelect.value = "";
+                    sizeSelect.value = "";
+
+                    alert("اللون الرمادي غير متوفر . المرجو إختيار لون آخر");
+                }
+                // else if ((selectedColor === 'SteelBlue' && selectedSize === 'XXL') || (selectedColor === 'SteelBlue' && selectedSize === 'L') || (selectedColor === 'Black' && selectedSize === 'XXL')) {
+                //     orderButton.disabled = true;
+                //     sizeSelect.value = "";
+                //     alert('هذا اللون غير متوفر حاليا. سيصبح متوفرا خلال ثلاثة أيام.');
+                // } 
+                else {
+                    // Activez le bouton de commande si la condition n'est pas remplie
+                    orderButton.disabled = false;
+                }
+            }
+
+            // Vérifiez l'indisponibilité au chargement de la page
+            checkAvailability();
+
+            // Ajoutez un événement "change" aux sélecteurs de couleur et de taille
+            colorSelect.addEventListener("change", checkAvailability);
+            sizeSelect.addEventListener("change", checkAvailability);
+        });
+    </script>-->
+	
+	
+
+
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-    <!--<link rel="stylesheet" href="css/fontawesome/all.css">-->
-    <link rel="stylesheet" href="css/fontawesome/V4-shims.css">
-    <link rel="stylesheet" href="css/style.css">
+  
 
-
-
+    <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="clients_reviews/nicepage.css" media="screen">
     <link rel="stylesheet" href="clients_reviews/Page-7.css" media="screen">
 
@@ -263,19 +333,25 @@
         body {
             touch-action: pan-y;
         }
-
-
+		.hidden {
+            display: none;
         }
+		
     </style>
     <script class="u-script" type="text/javascript" src="clients_reviews/jquery-1.9.1.min.js" defer=""></script>
     <script class="u-script" type="text/javascript" src="clients_reviews/nicepage.js" defer=""></script>
     <script src="js/slider1.js"></script>
-    <link rel="stylesheet" href="css/loader.css">
 
 
 </head>
 
 <body class="body_fixed">
+
+    <!-- Google Tag Manager (noscript) -->
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPZSKMPJ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
     <!-- <div id="loader-wrapper">
         <div id="loader"></div>
     </div> -->
@@ -316,7 +392,7 @@
                                                         target="_blank" class="title-section-text"
                                                         data-pb-section="PBS-svr6ws1661723616425" data-pb-field="text"
                                                         data-pb-type="text" data-pb-value="ت 50% و توصي مجاني ريع">
-                                                        تخفيض 50% و التوصيل مجاني و سري
+                                                        تخفيض 50% و التوصيل مجاني و سريع
                                                     </a>
                                                 </p>
                                             </div>
@@ -343,13 +419,13 @@
 
                     <div class="mySlides fade">
                         <div class="numbertext">1 / 5</div>
-                        <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/slide1.jpg?v=1702592862"
+                        <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/SL2_3f49121b-b148-4325-a497-d5a6239739f5.jpg?v=1705234976"
                             style="width:100%">
                     </div>
 
                     <div class="mySlides fade">
                         <div class="numbertext">2 / 5</div>
-                        <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/slide2.jpg?v=1702592862"
+                        <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/BLEU_SLIDE1.jpg?v=1703961507"
                             style="width:100%">
                     </div>
 
@@ -388,76 +464,139 @@
                     <span class="dot" onclick="currentSlide(5)"></span>
                 </div>
 
-                <script>
-                    let slideIndex = 1;
-                    showSlides(slideIndex);
-
-                    function plusSlides(n) {
-                        showSlides(slideIndex += n);
-                    }
-
-                    function currentSlide(n) {
-                        showSlides(slideIndex = n);
-                    }
-
-                    function showSlides(n) {
-                        let i;
-                        let slides = document.getElementsByClassName("mySlides");
-                        let dots = document.getElementsByClassName("dot");
-                        if (n > slides.length) { slideIndex = 1 }
-                        if (n < 1) { slideIndex = slides.length }
-                        for (i = 0; i < slides.length; i++) {
-                            slides[i].style.display = "none";
-                        }
-                        for (i = 0; i < dots.length; i++) {
-                            dots[i].className = dots[i].className.replace(" active", "");
-                        }
-                        slides[slideIndex - 1].style.display = "block";
-                        dots[slideIndex - 1].className += " active";
-                    }
-                    // Auto-scroll functionality
-                    let autoScrollInterval;
-
-                    function startAutoScroll() {
-                        autoScrollInterval = setInterval(function () {
-                            plusSlides(1);
-                        }, 3000); // Adjust the interval (in milliseconds) as needed
-                    }
-
-                    function stopAutoScroll() {
-                        clearInterval(autoScrollInterval);
-                    }
-
-                    // Touch swipe functionality
-                    let touchStartX;
-
-                    document.addEventListener('touchstart', function (e) {
-                        touchStartX = e.touches[0].clientX;
-                        stopAutoScroll();
-                    });
-
-                    document.addEventListener('touchend', function (e) {
-                        let touchEndX = e.changedTouches[0].clientX;
-                        let swipeDistance = touchEndX - touchStartX;
-
-                        if (swipeDistance > 50) {
-                            plusSlides(-1);
-                        } else if (swipeDistance < -50) {
-                            plusSlides(1);
-                        }
-
-                        startAutoScroll();
-                    });
-
-                    // Start auto-scroll on page load
-                    startAutoScroll();
-                </script>
-
+              
 
                 <div class="container">
-                    <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/lp-part1.jpg?v=1702593364"
+                    <!-- <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/couleurs.jpg?v=1705182395" alt="Image description"> -->
+                    <img src="images/pant-colors.jpg" alt="Image description">
+                </div>
+
+
+                <section id="PBS-47z7f1661723616426" class="section page-section title-section PBS-47z7f1661723616426"
+                    style="background: #fff;">
+                    <div class="inner-container">
+                        <div class="inner-title" data-pb-debug="margin padding">
+                            <div class="fr-view">
+                                <p class="title-section-content">
+                                    <span class="title-section-stylish"></span>
+                                    <a href="" style="font-size: 1.7rem; color: #2692c0;" target="_blank"
+                                        class="title-section-text" data-pb-section="PBS-47z7f1661723616426"
+                                        data-pb-field="text" data-pb-type="text"
+                                        data-pb-value="للطلب المرجو ملأ الإستمارة أسفله">
+                                        للطلب المرجو ملٱ الإستمارة اسفله
+                                    </a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+
+                <section id="PBS-qnim9k1632909988068"
+                    class="section page-section express-checkout-form-section PBS-qnim9k1632909988068">
+                    <div data-pb-debug="margin" class="inner-express-checkout-form">
+                        <div data-pb-debug="padding" class="page-builder-express-checkout-wrapper">
+                            <div data-pb-section="PBS-qnim9k1632909988068" data-pb-field="express-checkout-form-header"
+                                data-pb-type="html-editor" data-pb-value="فقط ب" class="fr-view">
+
+                            </div>
+
+                            <div data-pb-section="PBS-qnim9k1632909988068" data-pb-field="express-checkout-form-header"
+                                data-pb-type="html-editor" data-pb-value="فقط ب" class="fr-view">
+                                <p><span style="font-size: 24px; color: #2692c0"><strong>
+                                            <span class="offre_sale">عرض خاص !</span>
+                                            <br>
+                                            <span>
+                                                سروال واحد بسعر <span class="price_hot_sale_1">179درهم</span> و سروالين
+                                                بسعر <span class="price_hot_sale_1">249 درهم</span>
+                                            </span>
+
+                                        </strong>
+                                    </span>
+                                </p>
+                            </div>
+
+
+                            <div class="product-price-container"><span class="product-price"><span id="price_displayed"
+                                        class="value">179</span><span class="currency">&nbsp;د.م</span></span>
+                            </div>
+                            <div id="express-checkout-section" class="product-section checkout-section"
+                                data-pb-section="PBS-qnim9k1632909988068" data-pb-field="product-id"
+                                data-pb-type="single-product" data-pb-value="[object Object]">
+                                <div class="checkout">
+                                    <div class="main">
+                                        <div >
+                                            <form method="post" enctype="multipart/form-data" id="formInfo">
+                                                <input type="hidden" name="id" value="cc83bb80-0d63-40cc-81f5-ba7093419793">
+                                                <input type="hidden" name="quantity" value="1">
+                                                <input type="text" name="extra_payload" style="display: none;">
+                                                
+                                                <div class="card-header">
+                                                    <span><span class="badge" id="quantity-badge">x1</span>اشتري <span id="quantity-text">1</span> منتج</span>
+                                                    <span class="price" id="total-price">179.00 درهم</span>
+                                                </div>
+                                                
+                                                <div class="quantity-selector">
+                                                    <div class="quantity-option selected" data-quantity="1" data-price="179">واحد</div>
+                                                    <div class="quantity-option" data-quantity="2" data-price="249">إثنان</div>
+                                                    <div class="quantity-option" data-quantity="3" data-price="349">ثلاثة</div>
+                                                </div>
+                                                
+                                                <div id="products-container"></div>
+                                                
+                                                <div class="form-group">
+                                                    <div class="form-control">
+                                                        <label for="fullname">الإسم الكامل</label>
+                                                        <input type="text" id="fullname" name="fullname" required>
+                                                    </div>
+                                                    <div class="form-control">
+                                                        <label for="phone">رقم الهاتف</label>
+                                                        <input type="tel" id="phone" name="phone" pattern="0[678]\d{8}" required>
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-group">
+                                                    <div class="form-control" style="width: 100%;">
+                                                        <label for="adresse">العنوان</label>
+                                                        <input type="text" id="adresse" name="adresse" required>
+                                                    </div>
+                                                </div>
+                                                
+                                              
+                                            </form>
+                                        </div>
+                                    
+                                      
+                                    </div>
+                                </div>
+                            </div>
+                            <div data-pb-section="PBS-qnim9k1632909988068"
+                                data-pb-field="express-checkout-form-pre-footer" data-pb-type="html-editor"
+                                data-pb-value="" class="fr-view ec-form-pre-footer"></div>
+                            <div class="product-section add-to-cart-section">
+                                <button id="save_guest_order" style="font-size: 1.8rem;" type="submit"
+                                    data-pb-section="PBS-qnim9k1632909988068" data-pb-field="button-text"
+                                    data-pb-type="text" data-pb-value="إضغط هنا لطلب المنتج"
+                                    class="button single-submit" form="formInfo">
+                                    <span>إضغط هنا لطلب المنتج</span>
+                                    <i class="fa fa-spinner fa-spin" style="margin-right: 5px; display: none;"
+                                        id="span_loading"></i>
+                                </button>
+                            </div>
+                            <div data-pb-section="PBS-qnim9k1632909988068" data-pb-field="express-checkout-form-footer"
+                                data-pb-type="html-editor" data-pb-value="" class="fr-view ec-form-footer"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <div class="container">
+                    <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/PART1.jpg?v=1705181541"
                         alt="Image description">
                     <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/Pant1.gif?v=1702594760" alt="">
+                    <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/bleu2_62cef79a-feba-4e0a-92cb-f92d46d9801b.jpg?v=1703961507"
+                        alt="">
+                    <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/bleu_dc4d87db-39b1-406e-abf4-e8f08fe4d100.jpg?v=1703961507"
+                        alt="">
                     <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/pant2.jpg?v=1702594759" alt="">
                     <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/pant3.jpg?v=1702594759" alt="">
                     <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/pant4.jpg?v=1702594759" alt="">
@@ -472,14 +611,22 @@
                     <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/pant12.jpg?v=1702594759" alt="">
                     <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/pant13.jpg?v=1702594759" alt="">
                     <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/pant14.jpg?v=1702594759" alt="">
-                    <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/pant15.jpg?v=1702594759" alt="">
-                    <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/pant16.jpg?v=1702594759" alt="">
-                    <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/pant17.jpg?v=1702594759" alt="">
+                    <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/elastic_waste.jpg?v=1703959985"
+                        alt="">
+                    <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/pocket.jpg?v=1703959985" alt="">
+                    <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/pant17.jpg?v=1703286877" alt="">
                     <!-- <img src="https://see.saileeshop.com/img/20231204/15241012103.gif?=0" alt="">
                     <img src="https://see.saileeshop.com/img/20231204/15241012103.gif?=0" alt=""> -->
+                    <!--<a href="#PBS-qnim9k1632909988068">
+                        <button id="fade_buy_btn_lead" class="overlay-button" style="top: 7.0%;">إشتري الآن ب 199 درهم فقط
+                        </button>
+                    </a>-->
                     <a href="#PBS-qnim9k1632909988068">
-                        <button id="fade_buy_btn_lead" class="overlay-button" style="top: 7.4%;">إشتري الآن ب 229 دهم
-                            فقط</button>
+                        <button id="fade_buy_btn_lead" class="overlay-button" style="top: 94%;z-index: 999;
+                        position: fixed;
+                        padding: 15px 10px !important;
+                        font-size: 21px;    ">إشتري الآن ب 179 درهم فقط
+                        </button>
                     </a>
                 </div>
 
@@ -493,7 +640,7 @@
                                     <a href="" target="_blank" class="title-section-text"
                                         data-pb-section="PBS-lhtsfb1661723616426" data-pb-field="text"
                                         data-pb-type="text" data-pb-value="أكثر من 750 زبون يثقون بنا">
-                                        كثر من 750 زبون يثقون بنا
+                                        أكثر من 750 زبون يثقون بنا
                                     </a>
                                 </p>
                             </div>
@@ -521,7 +668,8 @@
                                             class="u-container-style u-group u-radius-20 u-shape-round u-similar-fill u-white u-group-1">
                                             <div class="u-container-layout u-valign-middle u-container-layout-2">
                                                 <p class="u-align-left u-text u-text-black u-text-font u-text-2">طلبت
-                                                    واحد وصلني اليوم زوين زاف و مريح </p>
+                                                    واحد وصلني اليوم زوين بزاف و مريح
+                                                </p>
                                                 <h5
                                                     class="u-align-right u-custom-font u-heading-font u-text u-text-black u-text-3">
                                                     - علاء
@@ -539,7 +687,7 @@
                                             class="u-container-style u-group u-radius-20 u-shape-round u-similar-fill u-white u-group-2">
                                             <div class="u-container-layout u-valign-middle u-container-layout-4">
                                                 <p class="u-align-left u-text u-text-black u-text-font u-text-4">
-                                                    سروال رائع، كيجي سواء مع الكلاس او سبور، كنشي بيه الخدمة حيت مريح
+                                                    سروال رائع، كيجي سواء مع الكلاس او سبور، كنمشي بيه الخدمة حيت مريح
                                                     بزاف
 
                                                 </p>
@@ -583,8 +731,8 @@
 
                 <section class="section page-section title-section" style="margin-top: 25px;">
                     <div class="inner-container countdown-container">
-                        <h1 style="font-weight: 600;">الوم فقط :</h1>
-                        <h2 style="font-size: 21px; font-weight: 600;">تخيض 50% و الشحن السريع بالمجان</h2>
+
+                        <h2 style="font-size: 21px; font-weight: 600;">تخفيض 50% و الشحن السريع بالمجان</h2>
                         <div id="countdown">
                             <div class="countdown-row">
                                 <div class="countdown-column">
@@ -606,8 +754,7 @@
                             </div>
                         </div>
                         <a href="#PBS-qnim9k1632909988068">
-                            <button id="fade_buy_btn_lead_2" class="overlay-button-2">احصل عليه اليوم ب 229 درهم
-                                فقط</button>
+                            <button id="fade_buy_btn_lead_2" class="overlay-button-2">احصل عليه اليوم ب 179 درهم فقط</button>
                         </a>
                     </div>
                 </section>
@@ -623,19 +770,19 @@
                             <a href="" target="_blank" class="title-section-text"
                                 data-pb-section="PBS-lhtsfb1661723616426" data-pb-field="text" data-pb-type="text"
                                 data-pb-value="الضمانات و الاسترجاع">
-                                الضمانات و السترجاع
+                                الضمانات و الإسترجاع
                             </a>
                         </p>
                         <div class="guaranties-column">
                             <img style="width: 18%; margin: auto;" src="images/icons/costumer-service.png" alt="">
-                            <h2 style="font-weight: 700; font-size: 20px;">خدمة ما بعد البي</h2>
-                            <p style="font-size: 17px; font-weight: 500;">حدمة العملاء متوفرة طيلة يام الأسبوع
+                            <h2 style="font-weight: 700; font-size: 20px;">خدمة ما بعد البيع</h2>
+                            <p style="font-size: 17px; font-weight: 500;">خدمة العملاء متوفرة طيلة أيام الأسبوع
                             </p>
                         </div>
                         <div class="guaranties-column">
                             <img style="width: 18%; margin: auto;" src="images/icons/delivery.png" alt="">
-                            <h2 style="font-weight: 700; font-size: 20px;">شحن مجاني</h2>
-                            <p style="font-size: 17px; font-weight: 500;">توصيل مجاني و ريع لجميع أنحاء المغرب
+                            <h2 style="font-weight: 700; font-size: 20px;">الشحن مجاني</h2>
+                            <p style="font-size: 17px; font-weight: 500;">التوصيل سريع و مجاني لجميع أنحاء المغرب
                             </p>
                         </div>
                         <div class="guaranties-column">
@@ -668,173 +815,35 @@
                                 الاسئلة الشائعة حول المتج
                             </a>
                         </p>
-                        <div class="question">هل تقبلن الدفع عند الاستلام؟</div>
-                        <div class="answer">نع، نحن نقبل الدفع ند الاستلام</div>
+                        <div class="question">هل تقبلون الدفع عند الإستلام؟</div>
+                        <div class="answer">نعم، نحن نقبل الدفع عند الإستلام</div>
 
                         <div class="question">كم فترة التوصيل؟</div>
-                        <div class="answer">فرة التوصيل تعتمد على المدينة، و عاة ما تكون بين 1 و 3 أيام عمل
+                        <div class="answer">فترة التوصيل تعتمد على المدينة، و عادة ما تكون بين 1 و 3 أيام عمل
                         </div>
 
-                        <div class="question">هل يمكن إرجاع المنج إذا لم يعجبني؟</div>
+                        <div class="question">هل يمكن إرجاع المنتج إذا لم يعجبني؟</div>
                         <div class="answer">نعم، يمكنك إرجاع المنتج ف حالة عدم الرضا عه في غضون 10 أيام من تاريخ
                             الشراء وبشر أن يكون في حالته الأصلية</div>
 
                         <div class="question">هل يوجد ضمان عل المنتج؟</div>
-                        <div class="answer">نعم، يوجد ضمان للمنتج يشمل عيوب اتصنيع ويختلف مدت حسب نوع المنتج</div>
+                        <div class="answer">نعم، ضمان المنتج يشمل عيوب التصنيع و تختلف مدة الضمان حسب المنتج</div>
                     </div>
                 </section>
 
 
-                <section id="PBS-47z7f1661723616426" class="section page-section title-section PBS-47z7f1661723616426"
-                    style="background: #fff;">
-                    <div class="inner-container">
-                        <div class="inner-title" data-pb-debug="margin padding">
-                            <div class="fr-view">
-                                <p class="title-section-content">
-                                    <span class="title-section-stylish"></span>
-                                    <a href="" style="font-size: 1.7rem; color: #2692c0;" target="_blank"
-                                        class="title-section-text" data-pb-section="PBS-47z7f1661723616426"
-                                        data-pb-field="text" data-pb-type="text"
-                                        data-pb-value="للطلب المرجو ملأ الإستمارة أسفله">
-                                        للطلب المرجو ملأ الإستمارة سفله
-                                    </a>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
 
 
-                <section id="PBS-qnim9k1632909988068"
-                    class="section page-section express-checkout-form-section PBS-qnim9k1632909988068">
-                    <div data-pb-debug="margin" class="inner-express-checkout-form">
-                        <div data-pb-debug="padding" class="page-builder-express-checkout-wrapper">
-                            <div data-pb-section="PBS-qnim9k1632909988068" data-pb-field="express-checkout-form-header"
-                                data-pb-type="html-editor" data-pb-value="فقط ب" class="fr-view">
-                                <p><span style="font-size: 24px; color: #2692c0"><strong>فقط
-                                            ب</strong></span></p>
-                            </div>
-
-                            <div data-pb-section="PBS-qnim9k1632909988068" data-pb-field="express-checkout-form-header"
-                                data-pb-type="html-editor" data-pb-value="فقط ب" class="fr-view">
-                                <p><span style="font-size: 24px; color: #2692c0"><strong>
-                                            <span class="offre_sale">عرض خاص !</span>
-                                            <br>
-                                            <span>
-                                                سروال واحد بسعر <span class="price_hot_sale_1">229 درهم</span> و سروالين
-                                                بسعر <span class="price_hot_sale_1">418 درهم</span>
-                                            </span>
-
-                                        </strong>
-                                    </span>
-                                </p>
-                            </div>
-
-
-                            <div class="product-price-container"><span class="product-price"><span id="price_displayed"
-                                        class="value">229</span><span class="currency">&nbsp;د.م</span></span>
-                            </div>
-                            <div id="express-checkout-section" class="product-section checkout-section"
-                                data-pb-section="PBS-qnim9k1632909988068" data-pb-field="product-id"
-                                data-pb-type="single-product" data-pb-value="[object Object]">
-                                <div class="checkout">
-                                    <div class="main">
-                                        <form method="post" enctype="multipart/form-data" id="formInfo"><input
-                                                type="hidden" name="id" value="cc83bb80-0d63-40cc-81f5-ba7093419793">
-                                            <input type="hidden" name="quantity" value="1"> <input type="text"
-                                                name="extra_payload" style="display: none;">
-                                            <div class="checkout-form">
-                                                <div class="checkout-groups">
-                                                    <h2 class="checkout-heading"></h2>
-
-                                                    <div class="form-group is-required"><label class="form-label">عدد
-                                                            الطبقات</label>
-                                                        <Select required
-                                                            oninvalid="this.setCustomValidity('المرجو اختيار عدد الطبقات');"
-                                                            onchange="try{setCustomValidity('')}catch(e){};"
-                                                            x-moz-errormessage="المرجو اختيار عدد البقات" type="text"
-                                                            name="tier_variante" id="tier_variante"
-                                                            placeholder="عدد الطبقات">
-                                                            <option value="">المرجو إختيار الكمية</option>
-                                                            <option value="1">واحد ب 219 درهم</option>
-                                                            <option value="2">إثنا ب 418 درهم</option>
-                                                        </Select>
-                                                    </div>
-
-                                                    <div class="form-group is-required">
-
-
-                                                        <label class="form-label">لون المتج</label>
-                                                        <select required
-                                                            oninvalid="this.setCustomValidity('المرجو اختيار لون المنتج');"
-                                                            onchange="try{setCustomValidity('')}catch(e){};"
-                                                            x-moz-errormessage="المرو اختيار لون المنتج" type="text"
-                                                            name="product_color" id="product_color"
-                                                            placeholder="لون المنتج">
-                                                            <option value="">امرجو إختيار لون المنتج</option>
-                                                            <option value="red">أحمر</option>
-                                                            <option value="blue">أزرق</option>
-                                                            <option value="green">أخضر</option>
-                                                            <!-- Add more color options as needed -->
-                                                        </select>
-                                                    </div>
-
-                                                    <!-- </div> -->
-                                                    <input type="hidden" name="number_tier" id="number_tier" value="1">
-                                                    <input type="hidden" name="price_tiers" id="price_tiers" value="">
-                                                    <div class="form-group is-required"><label class="form-label">الأسم
-                                                            الكامل</label> <input required
-                                                            oninvalid="this.setCustomValidity('المرجو إخال إسمك');"
-                                                            onchange="try{setCustomValidity('')}catch(e){};"
-                                                            x-moz-errormessage="المرجو دخال إسمك" type="text"
-                                                            name="fullname" placeholder="الأسم الكامل">
-                                                    </div>
-                                                    <div class="form-group is-required"><label class="form-label">رقم
-                                                            الهاتف</label> <input required
-                                                            oninvalid="this.setCustomValidity('المرجو إدخال قم الهاتف');"
-                                                            onchange="try{setCustomValidity('')}catch(e){};"
-                                                            x-moz-errormessage="المرجو إدخال رقم الهاتف" type="number"
-                                                            name="phone" placeholder="رقم الهاتف"></div>
-                                                    <div class="form-group is-required"><label
-                                                            class="form-label">العنوان</label> <input required
-                                                            oninvalid="this.setCustomValidity('المرج إدخال العنوان');"
-                                                            onchange="try{setCustomValidity('')}catch(e){};"
-                                                            x-moz-errormessage="امرجو إدخال العنون" type="text"
-                                                            name="adresse" placeholder="العنوان"></div>
-                                                </div>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            <div data-pb-section="PBS-qnim9k1632909988068"
-                                data-pb-field="express-checkout-form-pre-footer" data-pb-type="html-editor"
-                                data-pb-value="" class="fr-view ec-form-pre-footer"></div>
-                            <div class="product-section add-to-cart-section">
-                                <button id="save_guest_order" style="font-size: 1.8rem;" type="submit"
-                                    data-pb-section="PBS-qnim9k1632909988068" data-pb-field="button-text"
-                                    data-pb-type="text" data-pb-value="إضغط هنا لطلب المنتج"
-                                    class="button single-submit" form="formInfo">
-                                    <span>إضغط هنا لطلب المنتج</span>
-                                    <i class="fa fa-spinner fa-spin" style="margin-right: 5px; display: none;"
-                                        id="span_loading"></i>
-                                </button>
-                            </div>
-                            <div data-pb-section="PBS-qnim9k1632909988068" data-pb-field="express-checkout-form-footer"
-                                data-pb-type="html-editor" data-pb-value="" class="fr-view ec-form-footer"></div>
-                        </div>
-                    </div>
-                </section>
 
                 <section class="section page-section title-section"
                     style="background: #fff; padding-top: 25px; padding-bottom: 10px;">
                     <div class="inner-container">
                         <img src="images/noxeva_lucci_logo.png" alt="" style="width: 80%; margin: auto;">
-                        <h3 style="margin-top: 10px;">البريد الإلكترون : contact@novamaart.store</h3>
+                        <h3 style="margin-top: 10px;">البريد الإلكتروني : contact@novamaart.store</h3>
                         <div
                             style="margin-top: 10px;display: flex; justify-content: center; flex-wrap: wrap; line-height: 3;">
                             <a href="pages/terms_of_use.html" target="_blank" style="margin: 0 0 0 4px;">شروط
-                                الاستخدا</a>|
+                                الاستخدام</a>|
                             <a href="pages/return_and_refund_policy.html" target="_blank"
                                 style="margin: 0 4px 0 4px;">سياسه الاستبدال
                                 والاسترجاع</a>|
@@ -856,37 +865,9 @@
         <!-- App footer -->
         <!-- Hookables -->
     </div>
-
-    <script>
-
-        var price_tiers = document.getElementById("price_tiers");
-        var selectElement = document.getElementById("tier_variante");
-        // var hiddenInput = document.getElementById("quantity");
-        var currencyElement = document.getElementById("price_displayed");
-
-
-        selectElement.addEventListener("change", function () {
-
-            var selectedValue = selectElement.value;
-
-            if (selectedValue === "1") {
-                price_tiers.value = "229";
-                // hiddenInput.value = "1";
-                currencyElement.innerText = "229";
-            } else if (selectedValue === "2") {
-                price_tiers.value = "418";
-                // hiddenInput.value = "2";
-                currencyElement.innerText = "418";
-            } else {
-                price_tiers.value = "229";
-                // hiddenInput.value = "1";
-                currencyElement.innerText = "229";
-            }
-        });
-
-
-    </script>
-
+    
+    <script src="js/slides.js"></script>
+<script src="js/form.js"></script>
     <script src="js/ycpay.js"></script>
     <script src="js/jquery-3.6.4.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"
