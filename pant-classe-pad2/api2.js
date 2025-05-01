@@ -169,11 +169,11 @@ document.addEventListener("DOMContentLoaded", function () {
         var sheetDBData = {
             date: new Date().toString(),
             destinataire: fullname,
-            telephone: phone,
+            telephone: phone.toString(),
             ville: "-", // or set a default
             adresse: adresse,
             prix: total.toString(),
-            produit: "Pant Classe",
+            produit: "Pant-"+colorsString+"-"+sizesString,
             id_intern: "",
             change: "0",
             ouvrir_colis: "1",
