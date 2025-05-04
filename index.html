@@ -3,10 +3,699 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>lucci Moriny</title>
+    <title>Welcome to Lucci Moriny - Elegant Fashion</title>
+    <style>
+        /* Google Fonts Import */
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                        url('https://lucci-moriny.sirv.com/Images/IMG-20240704-WA0006.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #2692c0;
+            color: #fff;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin: 0 10px 10px 0;
+        }
+        
+        .btn:hover {
+            background-color: #1a7ba3;
+            transform: translateY(-3px);
+        }
+        
+        .btn.outline {
+            background-color: transparent;
+            border: 2px solid #fff;
+        }
+        
+        .btn.outline:hover {
+            background-color: #fff;
+            color: #333;
+        }
+        
+        /* Header/Navigation */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: #2692c0;
+        }
+        
+        /* Featured Products Section */
+        .featured-products {
+            padding: 80px 20px;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #2692c0;
+        }
+        
+        .products-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .product-card {
+            width: 300px;
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .product-image {
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .product-card:hover .product-image img {
+            transform: scale(1.1);
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            font-weight: 600;
+            color: #2692c0;
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 20px;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+        
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about p {
+            margin-bottom: 30px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            padding: 80px 20px;
+            text-align: center;
+            background: linear-gradient(rgba(38, 146, 192, 0.1), rgba(38, 146, 192, 0.1));
+        }
+        
+        .testimonial-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .testimonial-card {
+            width: 350px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: left;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text:before {
+            content: '"';
+            font-size: 50px;
+            color: #2692c0;
+            opacity: 0.2;
+            position: absolute;
+            top: -20px;
+            left: -10px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #777;
+            font-size: 0.9rem;
+        }
+        
+        /* Newsletter Section */
+        .newsletter {
+            padding: 60px 20px;
+            background-color: #2692c0;
+            color: #fff;
+            text-align: center;
+        }
+        
+        .newsletter h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+        }
+        
+        .newsletter p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-form input {
+            flex: 1;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .newsletter-form button {
+            background-color: #333;
+            color: #fff;
+            border: none;
+            padding: 0 25px;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .newsletter-form button:hover {
+            background-color: #000;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 60px 20px 20px;
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .footer-column {
+            width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background-color: #2692c0;
+        }
+        
+        .footer-column p {
+            margin-bottom: 15px;
+            color: #aaa;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: #2692c0;
+        }
+        
+        .social-links {
+            display: flex;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: #333;
+            border-radius: 50%;
+            margin-right: 10px;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background-color: #2692c0;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            margin-top: 30px;
+            border-top: 1px solid #333;
+            color: #aaa;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            header {
+                padding: 20px;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                font-size: 1.5rem;
+                color: #fff;
+                cursor: pointer;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -300px;
+                width: 250px;
+                height: 100vh;
+                background-color: #222;
+                padding: 80px 20px 20px;
+                transition: right 0.3s ease;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .close-menu {
+                position: absolute;
+                top: 20px;
+                right: 20px;
+                font-size: 1.5rem;
+                color: #fff;
+                cursor: pointer;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-form input {
+                border-radius: 30px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-form button {
+                border-radius: 30px;
+                padding: 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-    hello 
-    
+    <!-- Header/Navigation -->
+    <header>
+        <a href="#" class="logo">Lucci Moriny</a>
+        <div class="mobile-menu-btn">☰</div>
+        <nav>
+            <div class="close-menu">✕</div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Shop</a></li>
+                <li><a href="#">Collections</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to Lucci Moriny</h1>
+            <p>Discover our exclusive collection of elegant and stylish fashion pieces designed for the modern individual.</p>
+            <a href="#" class="btn">Explore Collection</a>
+            <a href="#" class="btn outline">Learn More</a>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="featured-products">
+        <h2 class="section-title">Featured Products</h2>
+        <div class="products-container">
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://lucci-moriny.sirv.com/Images/IMG-20240704-WA0006.jpg" alt="Elegant Elastic Shirt">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Elegant Elastic Shirt</h3>
+                    <div class="product-price">229 DH</div>
+                    <a href="https://lucci.moriny.com/chemise_simple/" class="btn">Shop Now</a>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://lucci-moriny.sirv.com/Images/noir-blanc01.jpg" alt="Classic Elegant Shoes">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Classic Elegant Shoes</h3>
+                    <div class="product-price">229 DH</div>
+                    <a href="https://lucci.moriny.com/shoes_sport/" class="btn">Shop Now</a>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-image">
+                    <img src="https://lucci-moriny.sirv.com/Images/IMG-20240704-WA0006.jpg" alt="Premium Collection Item">
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">Premium Collection Item</h3>
+                    <div class="product-price">299 DH</div>
+                    <a href="#" class="btn">Shop Now</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+        <h2 class="section-title">About Lucci Moriny</h2>
+        <div class="about-content">
+            <p>Lucci Moriny is a premium fashion brand dedicated to creating elegant, high-quality clothing and accessories for discerning customers. Our designs combine timeless elegance with modern style, ensuring you always look and feel your best.</p>
+            <p>Founded with a passion for exceptional craftsmanship and attention to detail, we strive to provide our customers with products that not only look beautiful but are also comfortable and durable.</p>
+            <a href="#" class="btn">Learn More About Us</a>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2 class="section-title">What Our Customers Say</h2>
+        <div class="testimonial-container">
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    <p>The quality of Lucci Moriny's products is exceptional. I've been a loyal customer for years, and their elegant shirts always receive compliments whenever I wear them.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="John D.">
+                    </div>
+                    <div class="author-info">
+                        <h4>John D.</h4>
+                        <p>Loyal Customer</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    <p>I purchased a pair of shoes from Lucci Moriny last month, and I'm amazed by their comfort and style. The attention to detail is remarkable!</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Sarah M.">
+                    </div>
+                    <div class="author-info">
+                        <h4>Sarah M.</h4>
+                        <p>Fashion Enthusiast</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial-card">
+                <div class="testimonial-text">
+                    <p>The customer service at Lucci Moriny is as impressive as their products. When I had a sizing issue, they resolved it promptly and professionally.</p>
+                </div>
+                <div class="testimonial-author">
+                    <div class="author-image">
+                        <img src="https://randomuser.me/api/portraits/men/67.jpg" alt="Michael T.">
+                    </div>
+                    <div class="author-info">
+                        <h4>Michael T.</h4>
+                        <p>New Customer</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Stay updated with our latest collections, exclusive offers, and fashion tips.</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email address" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Lucci Moriny</h3>
+                <p>Premium fashion for the modern individual. Elegant designs, exceptional quality, and timeless style.</p>
+                <div class="social-links">
+                    <a href="#"><span>f</span></a>
+                    <a href="#"><span>t</span></a>
+                    <a href="#"><span>in</span></a>
+                    <a href="#"><span>ig</span></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Shop</h3>
+                <ul>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                    <li><a href="#">Shirts</a></li>
+                    <li><a href="#">Shoes</a></li>
+                    <li><a href="#">Accessories</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Customer Service</h3>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>123 Fashion Street<br>Casablanca, Morocco</p>
+                <p>Email: info@luccimoriny.com<br>Phone: +212 123 456 789</p>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 Lucci Moriny. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav').classList.add('active');
+        });
+        
+        document.querySelector('.close-menu').addEventListener('click', function() {
+            document.querySelector('nav').classList.remove('active');
+        });
+    </script>
 </body>
 </html>
