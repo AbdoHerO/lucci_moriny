@@ -23,10 +23,13 @@ $(document).ready(function() {
     var selectedOffer = $('#formInfo input[name="offer"]:checked').attr('id');
 
     var selectedPrice = '';
+    var qtyOffre = '';
     if (selectedOffer === 'offer_1') {
         selectedPrice = '169 MAD';
+        qtyOffre = '1';
     } else if (selectedOffer === 'offer_2') {
         selectedPrice = '339 MAD';
+        qtyOffre = '2+1';
     }
 
   // Create the data object for SheetDB
@@ -37,7 +40,7 @@ $(document).ready(function() {
     phone: phone,
     city: "-",
     address: adresse,
-    quantity: variant,
+    quantity: qtyOffre,
     price: selectedPrice,
     product_notice: "",
     notice: "Color: " + product_color,
