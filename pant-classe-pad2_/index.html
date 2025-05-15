@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta name="theme-color" content="#2692c0" />
+    <meta name="msapplication-navbutton-color" content="#2692c0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="csrf-token" content="233G2Xj9p4pUeikewMtF9sgdnKzTDR772M94ZrfE">
+    <title>casual pant classe</title>
+    <meta property="og:title" content="casual pant classe" />
+    <meta property="og:image" content="images/noxeva_lucci_logo.png" />
+
+    <meta name="twitter:title" content="casual pant classe" />
+    <meta name="twitter:description" content="" />
+    <meta name="twitter:images0" content="images/noxeva_lucci_logo.png" />
+    <link rel="icon" type="image/png" href="images/cozmo_lucci_favicon.png" />
+    <!-- Google Fonts Link For Icons -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&family=Open+Sans:wght@600&display=swap');
+
+        :root {
+            --primary-color: #2692c0;
+            --secondary-color: #1a7ba3;
+            --accent-color: #ff9800;
+            --text-color: #333;
+            --light-text: #666;
+            --white: #fff;
+            --light-bg: #f8f8f8;
+            --border-color: #e0e0e0;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+            font-size: 16px;
+            text-align: center;
+            font-family: 'Cairo', sans-serif !important;
+        }
+
+        * {
+            font-family: 'Cairo', sans-serif !important;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            color: var(--text-color);
+            background-color: var(--light-bg);
+            line-height: 1.6;
+        }
+
+        /* Product Selection Cards */
+        .product-options {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin: 20px 0;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            transition: var(--transition);
+            border: 2px solid transparent;
+        }
+
+        .product-card.selected {
+            border-color: var(--primary-color);
+            transform: translateY(-4px);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px;
+            background-color: var(--light-bg);
+            cursor: pointer;
+        }
+
+        .card-header .left-content {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .quantity-badge {
+            background-color: var(--primary-color);
+            color: var(--white);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-color);
+        }
+
+        .card-price {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .card-body {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .product-card.selected .card-body {
+            max-height: 1000px;
+            padding: 16px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Variant Selection */
+        .variant-container {
+            margin-bottom: 16px;
+        }
+
+        .variant-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-align: right;
+        }
+
+        .color-options, .size-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 16px;
+        }
+
+        .color-option, .size-option {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .color-option input, .size-option input {
+            position: absolute;
+            opacity: 0;
+            cursor: pointer;
+            height: 0;
+            width: 0;
+        }
+
+        .color-circle {
+            display: block;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            border: 2px solid var(--border-color);
+            transition: var(--transition);
+        }
+
+        .color-option input:checked + .color-circle {
+            border: 2px solid var(--primary-color);
+            transform: scale(1.1);
+        }
+
+        .color-noir {
+            background-color: #000;
+        }
+
+        .color-blue {
+            background-color: #1a365d;
+        }
+
+        .color-beige {
+            background-color: #e8d6b3;
+        }
+
+        .size-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border: 2px solid var(--border-color);
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .size-option input:checked + .size-box {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border-color: var(--primary-color);
+        }
+
+        /* Customer Information Form */
+        .customer-info {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .form-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-control {
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .form-control label {
+            display: block;
+            text-align: right;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-control input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(38, 146, 192, 0.2);
+            outline: none;
+        }
+
+        .form-control .icon {
+            position: absolute;
+            left: 12px;
+            top: 40px;
+            color: var(--light-text);
+        }
+
+        /* Submit Button */
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        .submit-btn:disabled {
+            background-color: var(--light-text);
+            cursor: not-allowed;
+        }
+
+        /* Order Summary */
+        .order-summary {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .summary-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--border-color);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            :root {
+                font-size: 14px;
+            }
+
+            .color-options, .size-options {
+                justify-content: center;
+            }
+        }
+
+        /* Keep existing styles for other sections */
+        .slideshow-container, .container, .PBS-related-products, 
+        .u-align-left, .countdown-container, .faq-container, footer {
+            /* These remain unchanged */
+        }
+
+        /* Sticky CTA Button */
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            padding: 0 20px;
+            transition: var(--transition);
+            transform: translateY(0);
+        }
+
+        .sticky-cta.hidden {
+            transform: translateY(100%);
+        }
+
+        .sticky-cta button {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--accent-color);
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Product Slider */
+        .product-slider {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .product-image {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .slider-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: var(--border-color);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .slider-dot.active {
+            background-color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        /* Toast Notifications */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            z-index: 1000;
+            transform: translateX(150%);
+            transition: transform 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(0);
+        }
+
+        .toast.error {
+            background-color: #e53935;
+        }
+
+        .toast.success {
+            background-color: #43a047;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NPZSKMPJ" height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <div id="app">
+        <main class="page-wrapper">
+            <div class="page-builder">
+                <!-- Header Section -->
+                <section class="section page-section">
+                    <div class="inner-container" style="padding: 10px 0;">
+                        <div class="inner-title">
+                            <p class="title-section-content">
+                                <a href="" style="border: none; font-weight: 700; font-size: 19px;" class="title-section-text">
+                                    التوصيل مجاني لجميع أنحاء المغرب
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Product Slider -->
+                <div class="product-slider">
+                    <img src="https://lucci-moriny.sirv.com/Images/cl-02.jpg" class="product-image active" alt="Casual Pant Image 1">
+                    <div class="slider-nav">
+                        <span class="slider-dot active" data-index="0"></span>
+                        <span class="slider-dot" data-index="1"></span>
+                        <span class="slider-dot" data-index="2"></span>
+                    </div>
+                </div>
+
+                <!-- Color Options Display -->
+                <div class="container">
+                    <img src="https://lucci-moriny.sirv.com/Images/pack-colors.jpg" alt="Available Colors">
+                </div>
+
+                <!-- Order Form Section -->
+                <section class="section page-section">
+                    <div class="inner-container">
+                        <div class="inner-title">
+                            <p class="title-section-content">
+                                <a href="" style="font-size: 1.7rem; color: #2692c0;" class="title-section-text">
+                                    للطلب المرجو ملٱ الإستمارة اسفله
+                                </a>
+                            </p>
+                        </div>
+                        
+                        <div class="fr-view">
+                            <p>
+                                <span style="font-size: 24px; color: #2692c0">
+                                    <strong>
+                                        <span class="offre_sale">عرض خاص !</span>
+                                        <br>
+                                        <span>
+                                            واحد ب <span class="price_hot_sale_1">249 درهم</span> و إثنان ب<span class="price_hot_sale_1">459 درهم فقط</span>
+                                        </span>
+                                    </strong>
+                                </span>
+                            </p>
+                        </div>
+
+                        <!-- New Product Selection UI -->
+                        <form id="orderForm" method="post" enctype="multipart/form-data">
+                            <div class="product-options">
+                                <!-- Option 1: Single Pant -->
+                                <div class="product-card" data-pack="1" data-price="249">
+                                    <div class="card-header">
+                                        <div class="left-content">
+                                            <div class="quantity-badge">x1</div>
+                                            <div class="card-title">واحد ب 249 درهم</div>
+                                        </div>
+                                        <div class="card-price">249 درهم</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="variant-container">
+                                            <div class="variant-title">اختر اللون</div>
+                                            <div class="color-options">
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_1" value="Noir" required>
+                                                    <span class="color-circle color-noir" title="أسود"></span>
+                                                </label>
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_1" value="Blue" required>
+                                                    <span class="color-circle color-blue" title="أزرق داكـن"></span>
+                                                </label>
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_1" value="Beige" required>
+                                                    <span class="color-circle color-beige" title="بيــج"></span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="variant-container">
+                                            <div class="variant-title">اختر المقاس</div>
+                                            <div class="size-options">
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_1" value="S" required>
+                                                    <span class="size-box">S</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_1" value="M" required>
+                                                    <span class="size-box">M</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_1" value="L" required>
+                                                    <span class="size-box">L</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_1" value="XL" required>
+                                                    <span class="size-box">XL</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_1" value="XXL" required>
+                                                    <span class="size-box">XXL</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Option 2: Two Pants -->
+                                <div class="product-card" data-pack="2" data-price="459">
+                                    <div class="card-header">
+                                        <div class="left-content">
+                                            <div class="quantity-badge">x2</div>
+                                            <div class="card-title">إثنان ب 459 فقط</div>
+                                        </div>
+                                        <div class="card-price">459 درهم</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- First Item -->
+                                        <div class="variant-container">
+                                            <div class="variant-title">السروال الأول</div>
+                                            
+                                            <div class="variant-title">اختر اللون</div>
+                                            <div class="color-options">
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_2_1" value="Noir">
+                                                    <span class="color-circle color-noir" title="أسود"></span>
+                                                </label>
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_2_1" value="Blue">
+                                                    <span class="color-circle color-blue" title="أزرق داكـن"></span>
+                                                </label>
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_2_1" value="Beige">
+                                                    <span class="color-circle color-beige" title="بيــج"></span>
+                                                </label>
+                                            </div>
+                                            
+                                            <div class="variant-title">اختر المقاس</div>
+                                            <div class="size-options">
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_2_1" value="S">
+                                                    <span class="size-box">S</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_2_1" value="M">
+                                                    <span class="size-box">M</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_2_1" value="L">
+                                                    <span class="size-box">L</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_2_1" value="XL">
+                                                    <span class="size-box">XL</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_2_1" value="XXL">
+                                                    <span class="size-box">XXL</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Second Item -->
+                                        <div class="variant-container">
+                                            <div class="variant-title">السروال الثاني</div>
+                                            
+                                            <div class="variant-title">اختر اللون</div>
+                                            <div class="color-options">
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_2_2" value="Noir">
+                                                    <span class="color-circle color-noir" title="أسود"></span>
+                                                </label>
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_2_2" value="Blue">
+                                                    <span class="color-circle color-blue" title="أزرق داكـن"></span>
+                                                </label>
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_2_2" value="Beige">
+                                                    <span class="color-circle color-beige" title="بيــج"></span>
+                                                </label>
+                                            </div>
+                                            
+                                            <div class="variant-title">اختر المقاس</div>
+                                            <div class="size-options">
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_2_2" value="S">
+                                                    <span class="size-box">S</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_2_2" value="M">
+                                                    <span class="size-box">M</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_2_2" value="L">
+                                                    <span class="size-box">L</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_2_2" value="XL">
+                                                    <span class="size-box">XL</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_2_2" value="XXL">
+                                                    <span class="size-box">XXL</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Option 3: Three Pants -->
+                                <div class="product-card" data-pack="3" data-price="629">
+                                    <div class="card-header">
+                                        <div class="left-content">
+                                            <div class="quantity-badge">x3</div>
+                                            <div class="card-title">ثلاثة سراويل ب 629 درهم فقط</div>
+                                        </div>
+                                        <div class="card-price">629 درهم</div>
+                                    </div>
+                                    <div class="card-body">
+                                        <!-- First Item -->
+                                        <div class="variant-container">
+                                            <div class="variant-title">السروال الأول</div>
+                                            
+                                            <div class="variant-title">اختر اللون</div>
+                                            <div class="color-options">
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_3_1" value="Noir">
+                                                    <span class="color-circle color-noir" title="أسود"></span>
+                                                </label>
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_3_1" value="Blue">
+                                                    <span class="color-circle color-blue" title="أزرق داكـن"></span>
+                                                </label>
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_3_1" value="Beige">
+                                                    <span class="color-circle color-beige" title="بيــج"></span>
+                                                </label>
+                                            </div>
+                                            
+                                            <div class="variant-title">اختر المقاس</div>
+                                            <div class="size-options">
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_3_1" value="S">
+                                                    <span class="size-box">S</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_3_1" value="M">
+                                                    <span class="size-box">M</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_3_1" value="L">
+                                                    <span class="size-box">L</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_3_1" value="XL">
+                                                    <span class="size-box">XL</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_3_1" value="XXL">
+                                                    <span class="size-box">XXL</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Second Item -->
+                                        <div class="variant-container">
+                                            <div class="variant-title">السروال الثاني</div>
+                                            
+                                            <div class="variant-title">اختر اللون</div>
+                                            <div class="color-options">
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_3_2" value="Noir">
+                                                    <span class="color-circle color-noir" title="أسود"></span>
+                                                </label>
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_3_2" value="Blue">
+                                                    <span class="color-circle color-blue" title="أزرق داكـن"></span>
+                                                </label>
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_3_2" value="Beige">
+                                                    <span class="color-circle color-beige" title="بيــج"></span>
+                                                </label>
+                                            </div>
+                                            
+                                            <div class="variant-title">اختر المقاس</div>
+                                            <div class="size-options">
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_3_2" value="S">
+                                                    <span class="size-box">S</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_3_2" value="M">
+                                                    <span class="size-box">M</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_3_2" value="L">
+                                                    <span class="size-box">L</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_3_2" value="XL">
+                                                    <span class="size-box">XL</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_3_2" value="XXL">
+                                                    <span class="size-box">XXL</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Third Item -->
+                                        <div class="variant-container">
+                                            <div class="variant-title">السروال الثالث</div>
+                                            
+                                            <div class="variant-title">اختر اللون</div>
+                                            <div class="color-options">
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_3_3" value="Noir">
+                                                    <span class="color-circle color-noir" title="أسود"></span>
+                                                </label>
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_3_3" value="Blue">
+                                                    <span class="color-circle color-blue" title="أزرق داكـن"></span>
+                                                </label>
+                                                <label class="color-option">
+                                                    <input type="radio" name="color_3_3" value="Beige">
+                                                    <span class="color-circle color-beige" title="بيــج"></span>
+                                                </label>
+                                            </div>
+                                            
+                                            <div class="variant-title">اختر المقاس</div>
+                                            <div class="size-options">
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_3_3" value="S">
+                                                    <span class="size-box">S</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_3_3" value="M">
+                                                    <span class="size-box">M</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_3_3" value="L">
+                                                    <span class="size-box">L</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_3_3" value="XL">
+                                                    <span class="size-box">XL</span>
+                                                </label>
+                                                <label class="size-option">
+                                                    <input type="radio" name="size_3_3" value="XXL">
+                                                    <span class="size-box">XXL</span>
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Order Summary -->
+                            <div class="order-summary">
+                                <h3 class="summary-title">ملخص الطلب</h3>
+                                <div id="orderItems">
+                                    <!-- Will be populated by JavaScript -->
+                                </div>
+                                <div class="summary-total">
+                                    <span>المجموع:</span>
+                                    <span id="totalPrice">0 درهم</span>
+                                </div>
+                            </div>
+
+                            <!-- Customer Information Form -->
+                            <div class="customer-info">
+                                <h3 class="form-title">معلومات التوصيل</h3>
+                                
+                                <div class="form-group">
+                                    <div class="form-control">
+                                        <label for="fullname">الإسم الكامل</label>
+                                        <input type="text" id="fullname" name="fullname" required>
+                                        <i class="fas fa-user icon"></i>
+                                    </div>
+                                    
+                                    <div class="form-control">
+                                        <label for="phone">رقم الهاتف</label>
+                                        <input type="tel" id="phone" name="phone" pattern="0[678]\d{8}" required>
+                                        <i class="fas fa-phone icon"></i>
+                                    </div>
+                                    
+                                    <div class="form-control">
+                                        <label for="adresse">العنوان</label>
+                                        <input type="text" id="adresse" name="adresse" required>
+                                        <i class="fas fa-map-marker-alt icon"></i>
+                                    </div>
+                                </div>
+                                
+                                <!-- Hidden fields -->
+                                <input type="hidden" id="qte" name="qte" value="1">
+                                <input type="hidden" id="selectedPack" name="selectedPack" value="1">
+                                
+                                <button type="submit" id="submitOrder" class="submit-btn pulse">
+                                    <span>إضغط هنا لطلب المنتج</span>
+                                    <i class="fa fa-spinner fa-spin" style="margin-right: 5px; display: none;" id="span_loading"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Product Features -->
+                <div class="container">
+                    <img src="https://lucci-moriny.sirv.com/Images/1gif-ezgif.com-video-to-gif-converter.gif" alt="Product Features">
+                    <img src="https://lucci-moriny.sirv.com/Images/body01.jpg" alt="Product Details">
+                    <img src="https://lucci-moriny.sirv.com/Images/body02.jpg" alt="Product Details">
+                    <img src="https://lucci-moriny.sirv.com/Images/body03.jpg" alt="Product Details">
+                    <img src="https://lucci-moriny.sirv.com/Images/cl-07.jpg" alt="Product Details">
+                    <img src="https://lucci-moriny.sirv.com/Images/cl-06.jpg" alt="Product Details">
+                    <img src="https://lucci-moriny.sirv.com/Images/cl-05.jpg" alt="Product Details">
+                    <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/pant12.jpg?v=1702594759" alt="Product Details">
+                    <img src="https://cdn.shopify.com/s/files/1/0823/3821/8305/files/pant17.jpg?v=1703286877" alt="Product Details">
+                </div>
+
+                <!-- Sticky CTA Button -->
+                <div class="sticky-cta" id="stickyCta">
+                    <button>إشتري الآن ب 249 درهم فقط</button>
+                </div>
+
+                <!-- Related Products Section -->
+                <section id="PBS-related-products" class="section page-section title-section PBS-related-products">
+                    <div class="inner-container">
+                        <div class="inner-title">
+                            <div class="fr-view">
+                                <p class="title-section-content">
+                                    <span class="title-section-stylish"></span>
+                                    <a href="" target="_blank" class="title-section-text">منتجات ذات صلة</a>
+                                </p>
+                            </div>
+                            <div class="subtitle-holder">
+                                <p class="subtitle-section-content">تسوق أيضا هذه المنتجات المميزة</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="related-products-container">
+                        <div class="related-product">
+                            <div class="product-image">
+                                <img src="https://lucci-moriny.sirv.com/Images/IMG-20240704-WA0006.jpg" alt="قميص أنيق مرن">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">قميص أنيق مرن</h3>
+                                <p class="product-description">قميص كلاسيكي أنيق بقماش مرن عالي الجودة مناسب للمناسبات الرسمية</p>
+                                <div class="product-price">229 درهم</div>
+                                <a href="https://lucci.moriny.com/chemise_simple/" class="product-button" target="_blank">اطلب الآن</a>
+                            </div>
+                        </div>
+                        
+                        <div class="related-product">
+                            <div class="product-image">
+                                <img src="https://lucci-moriny.sirv.com/Images/noir-blanc01.jpg" alt="حذاء كلاسيكي أنيق">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-title">حذاء كلاسيكي أنيق</h3>
+                                <p class="product-description">حذاء رياضي بتصميم كلاسيكي أنيق مريح للاستخدام اليومي</p>
+                                <div class="product-price">299 درهم</div>
+                                <a href="https://lucci.moriny.com/shoes_sport/" class="product-button" target="_blank">اطلب الآن</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Testimonials Section -->
+                <section id="PBS-lhtsfb1661723616426" class="section page-section title-section">
+                    <div class="inner-container">
+                        <div class="inner-title">
+                            <div class="fr-view">
+                                <p class="title-section-content">
+                                    <span class="title-section-stylish"></span>
+                                    <a href="" target="_blank" class="title-section-text">أكثر من 750 زبون يثقون بنا</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Reviews Section -->
+                <section class="u-align-left u-clearfix u-grey-5 u-typography-custom-page-typography-32--Testimonials u-section-1" id="carousel_d736">
+                    <div class="u-clearfix u-sheet u-sheet-1">
+                        <div class="u-expanded-width u-list u-list-1">
+                            <div class="u-repeater u-repeater-1">
+                                <div class="u-align-right u-container-style u-list-item u-repeater-item">
+                                    <div class="u-container-layout u-similar-container u-valign-middle-md u-container-layout-1">
+                                        <div class="u-container-style u-group u-radius-20 u-shape-round u-similar-fill u-white u-group-1">
+                                            <div class="u-container-layout u-valign-middle u-container-layout-2">
+                                                <p class="u-align-left u-text u-text-black u-text-font u-text-2">طلبت واحد لراجلي وصلو اليوم زوين بزاف و مريح</p>
+                                                <h5 class="u-align-right u-custom-font u-heading-font u-text u-text-black u-text-3">- مريــم</h5>
+                                            </div>
+                                        </div>
+                                        <div class="u-image u-image-circle u-preserve-proportions u-image-1" alt="" data-image-width="1265" data-image-height="1080"></div>
+                                    </div>
+                                </div>
+                                <div class="u-align-right u-container-style u-list-item u-repeater-item">
+                                    <div class="u-container-layout u-similar-container u-valign-middle-md u-container-layout-3">
+                                        <div class="u-container-style u-group u-radius-20 u-shape-round u-similar-fill u-white u-group-2">
+                                            <div class="u-container-layout u-valign-middle u-container-layout-4">
+                                                <p class="u-align-left u-text u-text-black u-text-font u-text-4">سروال رائع، كيجي سواء مع الكلاس او سبور، كنمشي بيه الخدمة حيت مريح بزاف</p>
+                                                <h5 class="u-align-right u-custom-font u-heading-font u-text u-text-black u-text-5">- Karim</h5>
+                                            </div>
+                                        </div>
+                                        <div class="u-image u-image-circle u-preserve-proportions u-image-2" alt="" data-image-width="720" data-image-height="1080"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="u-repeater u-repeater-2">
+                                <div class="u-align-right u-container-style u-list-item u-repeater-item">
+                                    <div class="u-container-layout u-similar-container u-valign-middle-md u-container-layout-3">
+                                        <div class="u-container-style u-group u-radius-20 u-shape-round u-similar-fill u-white u-group-2">
+                                            <div class="u-container-layout u-valign-middle u-container-layout-4">
+                                                <p class="u-align-left u-text u-text-black u-text-font u-text-4">تبار الله عليكم منتوج في المستوى، الجوة عالية، التوصيل سريع. شكرا لكم</p>
+                                                <h5 class="u-align-right u-custom-font u-heading-font u-text u-text-black u-text-5">- احمد</h5>
+                                            </div>
+                                        </div>
+                                        <div class="u-image u-image-circle u-preserve-proportions u-image-3" alt="" data-image-width="720" data-image-height="1080"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Countdown Section -->
+                <section class="section page-section title-section" style="margin-top: 25px;">
+                    <div class="inner-container countdown-container">
+                        <h2 style="font-size: 21px; font-weight: 600;">تخفيض 50% و الشحن السريع بالمجان</h2>
+                        <div id="countdown">
+                            <div class="countdown-row">
+                                <div class="countdown-column">
+                                    <span class="countdown-label" id="seconds-label">ثانية</span>
+                                    <span class="countdown-value" id="seconds-value"></span>
+                                </div>
+                                <div class="countdown-column">
+                                    <span class="countdown-label" id="minutes-label">دقيقة</span>
+                                    <span class="countdown-value" id="minutes-value"></span>
+                                </div>
+                                <div class="countdown-column">
+                                    <span class="countdown-label" id="hours-label">ساعة</span>
+                                    <span class="countdown-value" id="hours-value"></span>
+                                </div>
+                                <div class="countdown-column">
+                                    <span class="countdown-label" id="days-label">يوم</span>
+                                    <span class="countdown-value" id="days-value"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="countdownCta" class="overlay-button-2">احصل عليه اليوم ب 249 درهم فقط</button>
+                    </div>
+                </section>
+
+                <!-- Guarantees Section -->
+                <section class="section page-section title-section" style="margin-top: 40px; background: linear-gradient(to bottom, #f1f0ee, #ffffff, #ffffff, #ffffff) !important;">
+                    <div class="inner-container">
+                        <p class="title-section-content" style="margin-bottom: 60px;">
+                            <span class="title-section-stylish"></span>
+                            <a href="" target="_blank" class="title-section-text">الضمانات و الإسترجاع</a>
+                        </p>
+                        <div class="guaranties-column">
+                            <img style="width: 18%; margin: auto;" src="images/icons/costumer-service.png" alt="">
+                            <h2 style="font-weight: 700; font-size: 20px;">خدمة ما بعد البيع</h2>
+                            <p style="font-size: 17px; font-weight: 500;">خدمة العملاء متوفرة طيلة أيام الأسبوع</p>
+                        </div>
+                        <div class="guaranties-column">
+                            <img style="width: 18%; margin: auto;" src="images/icons/delivery.png" alt="">
+                            <h2 style="font-weight: 700; font-size: 20px;">الشحن مجاني</h2>
+                            <p style="font-size: 17px; font-weight: 500;">التوصيل سريع و مجاني لجميع أنحاء المغرب</p>
+                        </div>
+                        <div class="guaranties-column">
+                            <img style="width: 18%; margin: auto;" src="images/icons/money.png" alt="">
+                            <h2 style="font-weight: 700; font-size: 20px;">الدفع عند الاستلام</h2>
+                            <p style="font-size: 17px; font-weight: 500;">لن تدفع اي شي حتى تتوصل بالمنتج</p>
+                        </div>
+                        <div class="guaranties-column">
+                            <img style="width: 18%; margin: auto;" src="images/icons/bird.png" alt="">
+                            <h2 style="font-weight: 700; font-size: 20px;">ضمان المنتج</h2>
+                            <p style="font-size: 17px; font-weight: 500;">ضمان 10 أيام إذا لم يعجبك يمكنك استرداد أموالك</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- FAQ Section -->
+                <section class="section page-section title-section" style="background: linear-gradient(to bottom, #fff, #d0dee7, #d0dee7, #fff) !important; padding-bottom: 20px;">
+                    <div class="faq-container">
+                        <p class="title-section-content" style="text-align: center; font-size: 1.6rem; margin-bottom: 45px;">
+                            <span class="title-section-stylish"></span>
+                            <a href="" target="_blank" class="title-section-text">الاسئلة الشائعة حول المنتج</a>
+                        </p>
+                        <div class="question">هل تقبلون الدفع عند الإستلام؟</div>
+                        <div class="answer">نعم، نحن نقبل الدفع عند الإستلام</div>
+
+                        <div class="question">كم فترة التوصيل؟</div>
+                        <div class="answer">فترة التوصيل تعتمد على المدينة، و عادة ما تكون بين 1 و 3 أيام عمل</div>
+
+                        <div class="question">هل يمكن إرجاع المنتج إذا لم يعجبني؟</div>
+                        <div class="answer">نعم، يمكنك إرجاع المنتج ف حالة عدم الرضا عه في غضون 10 أيام من تاريخ الشراء وبشر أن يكون في حالته الأصلية</div>
+
+                        <div class="question">هل يوجد ضمان عل المنتج؟</div>
+                        <div class="answer">نعم، ضمان المنتج يشمل عيوب التصنيع و تختلف مدة الضمان حسب المنتج</div>
+                    </div>
+                </section>
+
+                <!-- Footer Section -->
+                <section class="section page-section title-section" style="background: #fff; padding-top: 25px; padding-bottom: 10px;">
+                    <div class="inner-container">
+                        <img src="images/noxeva_lucci_logo.png" alt="" style="width: 80%; margin: auto;">
+                        <h3 style="margin-top: 10px;">البريد الإلكتروني : contact@moriny.store</h3>
+                        <div style="margin-top: 10px;display: flex; justify-content: center; flex-wrap: wrap; line-height: 3;">
+                            <a href="pages/terms_of_use.html" target="_blank" style="margin: 0 0 0 4px;">شروط الاستخدام</a>|
+                            <a href="pages/return_and_refund_policy.html" target="_blank" style="margin: 0 4px 0 4px;">سياسه الاستبدال والاسترجاع</a>|
+                            <a href="pages/privacy_policy.html" target="_blank" style="margin: 0 4px 0 0;">سياسه الخصوصيه</a>
+                        </div>
+                    </div>
+                </section>
+
+                <footer style="padding: 13px 0; background: #2692c0; color: #fff;">
+                    <h2 style="margin: 0;">جميع لحقوق محفوظة لدى 2025 © Moriny</h2>
+                </footer>
+            </div>
+        </main>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- JavaScript -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Product Selection Logic
+            const productCards = document.querySelectorAll('.product-card');
+            const qteField = document.getElementById('qte');
+            const selectedPackField = document.getElementById('selectedPack');
+            const totalPriceElement = document.getElementById('totalPrice');
+            const orderItemsElement = document.getElementById('orderItems');
+            const submitButton = document.getElementById('submitOrder');
+            const stickyCta = document.getElementById('stickyCta');
+            const countdownCta = document.getElementById('countdownCta');
+            const toast = document.getElementById('toast');
+            
+            let selectedCard = null;
+            
+            // Initialize with first pack selected
+            selectPack(productCards[0]);
+            
+            // Add click event to product cards
+            productCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    selectPack(this);
+                });
+            });
+            
+            function selectPack(card) {
+                // Remove selected class from all cards
+                productCards.forEach(c => {
+                    c.classList.remove('selected');
+                    
+                    // Disable required attributes for all inputs in this card
+                    const inputs = c.querySelectorAll('input[type="radio"]');
+                    inputs.forEach(input => {
+                        input.required = false;
+                    });
+                });
+                
+                // Add selected class to clicked card
+                card.classList.add('selected');
+                selectedCard = card;
+                
+                // Set quantity and pack values
+                const packNumber = card.dataset.pack;
+                qteField.value = packNumber;
+                selectedPackField.value = packNumber;
+                
+                // Enable required attributes for inputs in selected card
+                const requiredInputs = card.querySelectorAll('input[type="radio"]');
+                requiredInputs.forEach(input => {
+                    input.required = true;
+                });
+                
+                // Update order summary
+                updateOrderSummary();
+                
+                // Show success toast
+                showToast(`تم اختيار ${packNumber} سروال`, 'success');
+            }
+            
+            // Update order summary
+            function updateOrderSummary() {
+                if (!selectedCard) return;
+                
+                const packNumber = selectedCard.dataset.pack;
+                const price = selectedCard.dataset.price;
+                
+                // Update total price
+                totalPriceElement.textContent = `${price} درهم`;
+                
+                // Clear previous items
+                orderItemsElement.innerHTML = '';
+                
+                // Add item to summary
+                const itemText = packNumber == 1 ? 'سروال واحد' : 
+                                packNumber == 2 ? 'سروالان' : 
+                                'ثلاثة سراويل';
+                
+                const summaryItem = document.createElement('div');
+                summaryItem.className = 'summary-item';
+                summaryItem.innerHTML = `
+                    <span>${itemText}</span>
+                    <span>${price} درهم</span>
+                `;
+                orderItemsElement.appendChild(summaryItem);
+            }
+            
+            // Show toast notification
+            function showToast(message, type = '') {
+                toast.textContent = message;
+                toast.className = 'toast show';
+                if (type) toast.classList.add(type);
+                
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 3000);
+            }
+            
+            // Product Image Slider
+            const sliderDots = document.querySelectorAll('.slider-dot');
+            const productImages = [
+                'https://lucci-moriny.sirv.com/Images/cl-02.jpg',
+                'https://lucci-moriny.sirv.com/Images/cl-03.jpg',
+                'https://lucci-moriny.sirv.com/Images/cl-01.jpg'
+            ];
+            
+            sliderDots.forEach((dot, index) => {
+                dot.addEventListener('click', function() {
+                    // Update active dot
+                    sliderDots.forEach(d => d.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Update image
+                    const productImage = document.querySelector('.product-image');
+                    productImage.src = productImages[index];
+                });
+            });
+            
+            // Sticky CTA Button
+            stickyCta.addEventListener('click', function() {
+                document.querySelector('.product-options').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+            
+            countdownCta.addEventListener('click', function() {
+                document.querySelector('.product-options').scrollIntoView({ 
+                    behavior: 'smooth' 
+                });
+            });
+            
+            // Hide sticky button when form is visible
+            window.addEventListener('scroll', function() {
+                const formRect = document.querySelector('.product-options').getBoundingClientRect();
+                if (formRect.top <= window.innerHeight && formRect.bottom >= 0) {
+                    stickyCta.classList.add('hidden');
+                } else {
+                    stickyCta.classList.remove('hidden');
+                }
+            });
+            
+            // Form submission
+            document.getElementById('orderForm').addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                // Disable submit button and show loading spinner
+                submitButton.disabled = true;
+                document.getElementById('span_loading').style.display = 'inline-block';
+                
+                // Collect form data
+                const formData = new FormData(this);
+                let colors = [];
+                let sizes = [];
+                let quantity = parseInt(formData.get('qte'));
+                let total = selectedCard ? selectedCard.dataset.price : 0;
+                
+                // Get selected colors and sizes
+                formData.forEach((value, key) => {
+                    if (key.startsWith('color_') && value !== "") {
+                        colors.push(value);
+                    } else if (key.startsWith('size_') && value !== "") {
+                        sizes.push(value);
+                    }
+                });
+                
+                // Get traffic source
+                let trafficSource = "";
+                const url = window.location.href;
+                if (url.indexOf('fbclid') !== -1) trafficSource = 'Facebook';
+                else if (url.indexOf('ttclid') !== -1) trafficSource = 'Tiktok';
+                else if (url.indexOf('gclid') !== -1) trafficSource = 'Google Ads';
+                
+                // Get customer info
+                const fullname = formData.get('fullname');
+                const phone = formData.get('phone');
+                const adresse = formData.get('adresse');
+                
+                // Format date
+                const dateObject = new Date();
+                const formattedDate = dateObject.toLocaleString('fr-FR', {
+                    day: '2-digit',
+                    month: '2-digit',
+                    year: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                }).replace(',', ' à');
+                
+                // Prepare data for API
+                const colorsString = colors.join(', ');
+                const sizesString = sizes.join(', ');
+                
+                // Prepare data for SheetDB
+                const sheetDBData = {
+                    date: new Date().toString(),
+                    destinataire: fullname,
+                    telephone: phone.toString(),
+                    ville: "-",
+                    adresse: adresse,
+                    prix: total.toString(),
+                    produit: "Pant-" + colorsString + "-" + sizesString,
+                    id_intern: "",
+                    change: "0",
+                    ouvrir_colis: "1",
+                    essayage: "1",
+                    quantity: quantity,
+                    color: colorsString,
+                    size: sizesString,
+                    createdAt: formattedDate,
+                    montant: total.toString(),
+                    status: "en cours",
+                    trafic: trafficSource,
+                };
+                
+                // Send data to
+                // Send data to SheetDB API
+                fetch("https://sheetdb.io/api/v1/0tjsq029vh1s9", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": "Bearer c4pbl6r3lwr8r0bossphcnv02tpic1dqlp40ifla"
+                    },
+                    body: JSON.stringify({ data: sheetDBData }),
+                })
+                .then(function(response) {
+                    if (response.ok) {
+                        console.log("Order added to SheetDB successfully");
+                        
+                        // Track purchase event for Facebook Pixel
+                        if (typeof fbq === 'function') {
+                            fbq("track", "Purchase", {
+                                value: total,
+                                currency: "MAD",
+                                content_name: "Pantalon",
+                                content_type: "Home & Kitchen",
+                                product_id: "1127",
+                            });
+                        }
+                        
+                        // Redirect to success page
+                        document.location.href = "order_success.html";
+                    } else {
+                        console.log("Failed to add order to SheetDB");
+                        showToast("حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.", "error");
+                        submitButton.disabled = false;
+                        document.getElementById('span_loading').style.display = 'none';
+                    }
+                })
+                .catch(function(error) {
+                    console.log("Error:", error);
+                    showToast("حدث خطأ في الاتصال. يرجى التحقق من اتصالك بالإنترنت.", "error");
+                    submitButton.disabled = false;
+                    document.getElementById('span_loading').style.display = 'none';
+                });
+            });
+            
+            // Countdown Timer
+            function updateCountdown() {
+                // Set the date we're counting down to (24 hours from now)
+                const countDownDate = new Date();
+                countDownDate.setDate(countDownDate.getDate() + 1);
+                
+                // Get current date and time
+                const now = new Date().getTime();
+                
+                // Find the distance between now and the countdown date
+                const distance = countDownDate - now;
+                
+                // Time calculations for days, hours, minutes and seconds
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Display the result
+                document.getElementById("days-value").innerHTML = days;
+                document.getElementById("hours-value").innerHTML = hours;
+                document.getElementById("minutes-value").innerHTML = minutes;
+                document.getElementById("seconds-value").innerHTML = seconds;
+            }
+            
+            // Update countdown every second
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+            
+            // FAQ Accordion
+            const questions = document.querySelectorAll('.question');
+            
+            questions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    
+                    // Toggle active class
+                    this.classList.toggle('active');
+                    
+                    // Toggle display of answer
+                    if (answer.style.maxHeight) {
+                        answer.style.maxHeight = null;
+                    } else {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
