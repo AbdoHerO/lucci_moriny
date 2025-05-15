@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Test</title>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            direction: rtl;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2692c0;
+        }
+        .test-result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #f0f9ff;
+            border: 1px solid #2692c0;
+        }
+        .success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+        button {
+            background-color: #2692c0;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #1a7ba3;
+        }
+        pre {
+            background-color: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>اختبار النموذج</h1>
+        
+        <div>
+            <button id="test-form">اختبار النموذج</button>
+            <button id="test-slider">اختبار عارض الصور</button>
+        </div>
+        
+        <div id="result" class="test-result">
+            <p>انقر على الزر لبدء الاختبار.</p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        document.getElementById('test-form').addEventListener('click', function() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<p>جاري اختبار النموذج...</p>';
+            resultDiv.className = 'test-result';
+            
+            try {
+                // Check if form elements exist
+                const form = document.getElementById('formInfo');
+                const offer1 = document.getElementById('offer_1');
+                const offer2 = document.getElementById('offer_2');
+                
+                if (!form) {
+                    throw new Error('لم يتم العثور على النموذج (formInfo)');
+                }
+                
+                if (!offer1 || !offer2) {
+                    throw new Error('لم يتم العثور على خيارات العرض');
+                }
+                
+                // Test jQuery functionality
+                if (typeof $ !== 'function') {
+                    throw new Error('jQuery غير متوفر');
+                }
+                
+                // Test form submission function
+                if (typeof $("#formInfo").submit !== 'function') {
+                    throw new Error('وظيفة إرسال النموذج غير متوفرة');
+                }
+                
+                resultDiv.innerHTML = '<p>تم اختبار النموذج بنجاح! جميع العناصر موجودة ويبدو أن الكود يعمل بشكل صحيح.</p>';
+                resultDiv.className = 'test-result success';
+            } catch (error) {
+                resultDiv.innerHTML = `<p>فشل الاختبار: ${error.message}</p>`;
+                resultDiv.className = 'test-result error';
+            }
+        });
+        
+        document.getElementById('test-slider').addEventListener('click', function() {
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '<p>جاري اختبار عارض الصور...</p>';
+            resultDiv.className = 'test-result';
+            
+            try {
+                // Check if slider functions exist
+                if (typeof showSlides !== 'function') {
+                    throw new Error('وظيفة عارض الصور (showSlides) غير متوفرة');
+                }
+                
+                if (typeof plusSlides !== 'function') {
+                    throw new Error('وظيفة التنقل بين الصور (plusSlides) غير متوفرة');
+                }
+                
+                // Check if slider elements exist
+                const slides = document.getElementsByClassName('mySlides');
+                const dots = document.getElementsByClassName('dot');
+                
+                if (!slides || slides.length === 0) {
+                    throw new Error('لم يتم العثور على عناصر الصور (mySlides)');
+                }
+                
+                resultDiv.innerHTML = '<p>تم اختبار عارض الصور بنجاح! جميع العناصر موجودة ويبدو أن الكود يعمل بشكل صحيح.</p>';
+                resultDiv.className = 'test-result success';
+            } catch (error) {
+                resultDiv.innerHTML = `<p>فشل الاختبار: ${error.message}</p>`;
+                resultDiv.className = 'test-result error';
+            }
+        });
+    </script>
+</body>
+</html>
