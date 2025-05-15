@@ -1,4 +1,6 @@
-$("#formInfo").submit(function (event) {
+$(document).ready(function() {
+
+    $("#formInfo").submit(function (event) {
     // show loading icon and disable the button
     $("#save_guest_order").prop("disabled", true);
     $("#span_loading").show();
@@ -93,4 +95,4 @@ $("#formInfo").submit(function (event) {
         // alert("Failed to add order to SheetDB. Please try again later.");
       });
   });
-  
+});
