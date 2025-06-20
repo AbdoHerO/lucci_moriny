@@ -25,7 +25,7 @@ $("#formInfo").submit(function (event) {
     city: "-",
     address: adresse,
     quantity: "",
-    price: variant + " Dh",
+    price: variant,
     product_notice: "",
     notice: "",
     status: "pending",
