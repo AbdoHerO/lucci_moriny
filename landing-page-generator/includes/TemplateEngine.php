@@ -349,90 +349,206 @@ class TemplateEngine {
     private function generateFormFields() {
         $productType = $this->config['product_type'] ?? 'two_variants';
         $hasOffer = $this->config['has_offer'] ?? 'yes';
-        
+        $price1 = $this->config['price_1'] ?? '249';
+        $price2 = $this->config['price_2'] ?? '459';
+        $currency = $this->config['currency'] ?? 'د.م';
+
         $html = '';
-        
-        // Offer/Quantity field
+
+        // Modern Pack-based form structure
         if ($hasOffer === 'yes') {
+            // Pack x1
             $html .= '
-                <div class="form-group is-required">
-                    <label class="form-label">عدد الطبقات</label>
-                    <select required name="tier_variante" id="tier_variante">
-                        <option value="">المرجو إختيار الكمية</option>
-                        <option value="1">واحد ب ' . ($this->config['price_1'] ?? '229') . ' درهم فقط</option>
-                        <option value="2">إثنان ب ' . ($this->config['price_2'] ?? '399') . ' درهم فقط</option>
-                    </select>
-                </div>
-            ';
-        }
-        
-        // Color field for single_variant and two_variants
-        if ($productType === 'single_variant' || $productType === 'two_variants') {
-            $colorOptions = $this->config['color_options'] ?? ['أسود', 'أبيض'];
-            $colorValues = $this->config['color_values'] ?? ['dark', 'white'];
-            
+                <div class="pack-container">
+                    <div class="pack-header">
+                        <div class="quantity">x1</div>
+                        <div class="title">واحد ب ' . $price1 . ' ' . $currency . '</div>
+                    </div>
+                    <div class="pack-details">
+                        <div class="price">' . $price1 . ' ' . $currency . '</div>
+                        <input type="hidden" name="pack_1" value="' . $price1 . ' ' . $currency . '">
+                        <div class="product-row">
+                            <label for="product_color_1">لون المنتج</label>
+                            <select id="product_color_1" name="product_color_1">
+                                <option value="">إختيار اللون</option>';
+
+            // Add color options
+            if (isset($this->config['color_options']) && is_array($this->config['color_options'])) {
+                foreach ($this->config['color_options'] as $index => $color) {
+                    $value = isset($this->config['color_values'][$index]) ? $this->config['color_values'][$index] : $color;
+                    $html .= '<option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($color) . '</option>';
+                }
+            }
+
+            $html .= '
+                            </select>';
+
+            // Add size options for two_variants
+            if ($productType === 'two_variants') {
+                $html .= '
+                            <label for="product_size_1">الحجم</label>
+                            <select id="product_size_1" name="product_size_1">
+                                <option value="">إختيار الحجم</option>';
+
+                if (isset($this->config['size_options']) && is_array($this->config['size_options'])) {
+                    foreach ($this->config['size_options'] as $index => $size) {
+                        $value = isset($this->config['size_values'][$index]) ? $this->config['size_values'][$index] : $size;
+                        $html .= '<option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($size) . '</option>';
+                    }
+                }
+
+                $html .= '
+                            </select>';
+            }
+
+            $html .= '
+                        </div>
+                    </div>
+                </div>';
+
+            // Pack x2
+            $html .= '
+                <div class="pack-container">
+                    <div class="pack-header">
+                        <div class="quantity">x2</div>
+                        <div class="title">إثنان ب ' . $price2 . ' ' . $currency . '</div>
+                    </div>
+                    <div class="pack-details">
+                        <div class="price">' . $price2 . ' ' . $currency . '</div>
+                        <input type="hidden" name="pack_2" value="' . $price2 . ' ' . $currency . '">
+                        <div class="product-row">
+                            <label for="product_color_2">لون المنتج الأول</label>
+                            <select id="product_color_2" name="product_color_2">
+                                <option value="">إختيار اللون</option>';
+
+            // Add color options for pack 2
+            if (isset($this->config['color_options']) && is_array($this->config['color_options'])) {
+                foreach ($this->config['color_options'] as $index => $color) {
+                    $value = isset($this->config['color_values'][$index]) ? $this->config['color_values'][$index] : $color;
+                    $html .= '<option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($color) . '</option>';
+                }
+            }
+
+            $html .= '
+                            </select>';
+
+            // Add size options for two_variants
+            if ($productType === 'two_variants') {
+                $html .= '
+                            <label for="product_size_2">الحجم الأول</label>
+                            <select id="product_size_2" name="product_size_2">
+                                <option value="">إختيار الحجم</option>';
+
+                if (isset($this->config['size_options']) && is_array($this->config['size_options'])) {
+                    foreach ($this->config['size_options'] as $index => $size) {
+                        $value = isset($this->config['size_values'][$index]) ? $this->config['size_values'][$index] : $size;
+                        $html .= '<option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($size) . '</option>';
+                    }
+                }
+
+                $html .= '
+                            </select>';
+            }
+
+            $html .= '
+                        </div>
+                        <div class="product-row">
+                            <label for="product_color_2_second">لون المنتج الثاني</label>
+                            <select id="product_color_2_second" name="product_color_2_second">
+                                <option value="">إختيار اللون</option>';
+
+            // Add color options for second product in pack 2
+            if (isset($this->config['color_options']) && is_array($this->config['color_options'])) {
+                foreach ($this->config['color_options'] as $index => $color) {
+                    $value = isset($this->config['color_values'][$index]) ? $this->config['color_values'][$index] : $color;
+                    $html .= '<option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($color) . '</option>';
+                }
+            }
+
+            $html .= '
+                            </select>';
+
+            // Add size options for second product
+            if ($productType === 'two_variants') {
+                $html .= '
+                            <label for="product_size_2_second">الحجم الثاني</label>
+                            <select id="product_size_2_second" name="product_size_2_second">
+                                <option value="">إختيار الحجم</option>';
+
+                if (isset($this->config['size_options']) && is_array($this->config['size_options'])) {
+                    foreach ($this->config['size_options'] as $index => $size) {
+                        $value = isset($this->config['size_values'][$index]) ? $this->config['size_values'][$index] : $size;
+                        $html .= '<option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($size) . '</option>';
+                    }
+                }
+
+                $html .= '
+                            </select>';
+            }
+
+            $html .= '
+                        </div>
+                    </div>
+                </div>';
+        } else {
+            // Simple form without packs
             $html .= '
                 <div class="form-group is-required">
                     <label class="form-label">لون المنتج</label>
                     <select required name="product_color" id="product_color">
-                        <option value="">المرجو إختيار لون المنتج</option>
-            ';
-            
-            foreach ($colorOptions as $index => $option) {
-                $value = $colorValues[$index] ?? $option;
-                $html .= "<option value=\"{$value}\">{$option}</option>\n";
+                        <option value="">المرجو إختيار لون المنتج</option>';
+
+            if (isset($this->config['color_options']) && is_array($this->config['color_options'])) {
+                foreach ($this->config['color_options'] as $index => $color) {
+                    $value = isset($this->config['color_values'][$index]) ? $this->config['color_values'][$index] : $color;
+                    $html .= '<option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($color) . '</option>';
+                }
             }
-            
+
             $html .= '
                     </select>
-                </div>
-            ';
-        }
-        
-        // Size field for two_variants
-        if ($productType === 'two_variants') {
-            $sizeOptions = $this->config['size_options'] ?? ['S', 'M', 'L', 'XL'];
-            $sizeValues = $this->config['size_values'] ?? ['S', 'M', 'L', 'XL'];
-            
-            $html .= '
+                </div>';
+
+            if ($productType === 'two_variants') {
+                $html .= '
                 <div class="form-group is-required">
-                    <label class="form-label">الحجم</label>
+                    <label class="form-label">حجم المنتج</label>
                     <select required name="product_size" id="product_size">
-                        <option value="">المرجو إختيار الحجم</option>
-            ';
-            
-            foreach ($sizeOptions as $index => $option) {
-                $value = $sizeValues[$index] ?? $option;
-                $html .= "<option value=\"{$value}\">{$option}</option>\n";
-            }
-            
-            $html .= '
+                        <option value="">المرجو إختيار حجم المنتج</option>';
+
+                if (isset($this->config['size_options']) && is_array($this->config['size_options'])) {
+                    foreach ($this->config['size_options'] as $index => $size) {
+                        $value = isset($this->config['size_values'][$index]) ? $this->config['size_values'][$index] : $size;
+                        $html .= '<option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($size) . '</option>';
+                    }
+                }
+
+                $html .= '
                     </select>
-                </div>
-            ';
+                </div>';
+            }
         }
-        
-        // Standard fields (name, phone, address)
+
+        // Customer information fields
         $html .= '
             <input type="hidden" name="number_tier" id="number_tier" value="1">
             <input type="hidden" name="price_tiers" id="price_tiers" value="">
-            
+
             <div class="form-group is-required">
                 <label class="form-label">الإسم الكامل</label>
                 <input required type="text" name="fullname" placeholder="الأسم الكامل">
             </div>
-            
+
             <div class="form-group is-required">
                 <label class="form-label">رقم الهاتف</label>
                 <input required type="number" name="phone" placeholder="رقم الهاتف">
             </div>
-            
+
             <div class="form-group is-required">
                 <label class="form-label">العنوان</label>
                 <input required type="text" name="adresse" placeholder="العنوان">
-            </div>
-        ';
-        
+            </div>';
+
         return $html;
     }
 
@@ -570,8 +686,21 @@ class TemplateEngine {
     private function generateReviews() {
         $reviews = json_decode($this->config['selected_reviews'] ?? '[]', true);
         $html = '';
-        
-        foreach ($reviews as $review) {
+
+        // Array of different avatar images from pant-classe-pad1
+        $avatars = [
+            'images/profile 1.png',
+            'images/profile 2.jpeg',
+            'images/profile 3.jpeg',
+            'images/profile 4.png',
+            'images/noir-profil.jpg'
+        ];
+
+        foreach ($reviews as $index => $review) {
+            // Use different avatar for each review
+            $avatarIndex = $index % count($avatars);
+            $avatar = $avatars[$avatarIndex];
+
             $html .= "
                 <div class=\"u-align-right u-container-style u-list-item u-repeater-item\">
                     <div class=\"u-container-layout u-similar-container u-valign-middle-md u-container-layout-1\">
@@ -581,12 +710,12 @@ class TemplateEngine {
                                 <h5 class=\"u-align-right u-custom-font u-heading-font u-text u-text-black u-text-3\">- {$review['name']}</h5>
                             </div>
                         </div>
-                        <div class=\"u-image u-image-circle u-preserve-proportions u-image-1\" alt=\"\"></div>
+                        <div class=\"u-image u-image-circle u-preserve-proportions u-image-1\" style=\"background-image: url('{$avatar}')\" alt=\"{$review['name']}\"></div>
                     </div>
                 </div>
             ";
         }
-        
+
         return $html;
     }
     
@@ -618,13 +747,14 @@ class TemplateEngine {
     }
     
     private function copyAssets($projectDir) {
-        $templateDir = dirname(__DIR__, 2) . '/chemise_simple';
+        // Use the modern template: pant-classe-pad1
+        $templateDir = dirname(__DIR__, 2) . '/pant-classe-pad1';
 
         if (!file_exists($templateDir)) {
             throw new Exception("Template directory not found: {$templateDir}");
         }
 
-        // Copy all directories and files from chemise_simple
+        // Copy all directories and files from pant-classe-pad1
         $directoriesToCopy = [
             'css',
             'js',

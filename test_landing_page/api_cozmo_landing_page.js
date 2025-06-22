@@ -59,12 +59,12 @@ $("#formInfo").submit(function (event) {
           currency: "USD",
           content_name: "test_landing_page",
           content_type: "Product",
-          product_id: "685801fade832",
+          product_id: "68580adff3c7e",
         });
 
         // To track the purchase event using TikTok Pixel
         ttq.track('CompletePayment', {
-          content_id: '685801fade832',
+          content_id: '68580adff3c7e',
           content_type: 'product',
           value: price,
           currency: 'MAD'
