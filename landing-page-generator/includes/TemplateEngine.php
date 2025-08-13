@@ -4,6 +4,7 @@ class TemplateEngine {
     private $config;
     private $outputDir;
     
+<<<<<<< HEAD
     public function __construct($config, $outputDir = 'generated') {
         $this->config = $config;
         $this->outputDir = $outputDir;
@@ -11,11 +12,26 @@ class TemplateEngine {
         // Create output directory if it doesn't exist
         if (!file_exists($this->outputDir)) {
             mkdir($this->outputDir, 0755, true);
+=======
+    public function __construct($config, $outputDir = null) {
+        $this->config = $config;
+
+        // Generate in root path (same level as chemise_simple)
+        if ($outputDir === null) {
+            $this->outputDir = dirname(__DIR__, 2); // Go up to lucci-moriny-main root
+        } else {
+            $this->outputDir = $outputDir;
+>>>>>>> 39761ea4f25810faff5b4b7d241c3cbc8339bc95
         }
     }
     
     public function generateLandingPage() {
         $projectName = $this->config['name'];
+<<<<<<< HEAD
+=======
+        // Clean project name for directory
+        $projectName = preg_replace('/[^a-zA-Z0-9_\-]/', '_', $projectName);
+>>>>>>> 39761ea4f25810faff5b4b7d241c3cbc8339bc95
         $projectDir = $this->outputDir . '/' . $projectName;
 
         // Create project directory
@@ -25,9 +41,14 @@ class TemplateEngine {
 
         // Generate files
         $this->generateHTML($projectDir);
+<<<<<<< HEAD
         $this->generateCSS($projectDir);
         $this->generateJS($projectDir);
         $this->copyAssets($projectDir);
+=======
+        $this->copyAssets($projectDir);
+        $this->generateAPIFile($projectDir);
+>>>>>>> 39761ea4f25810faff5b4b7d241c3cbc8339bc95
 
         // Create ZIP file
         return $this->createZipFile($projectDir, $projectName);
@@ -347,6 +368,7 @@ class TemplateEngine {
     private function generateFormFields() {
         $productType = $this->config['product_type'] ?? 'two_variants';
         $hasOffer = $this->config['has_offer'] ?? 'yes';
+<<<<<<< HEAD
         
         $html = '';
         
@@ -369,10 +391,156 @@ class TemplateEngine {
             $colorOptions = $this->config['color_options'] ?? ['أسود', 'أبيض'];
             $colorValues = $this->config['color_values'] ?? ['dark', 'white'];
             
+=======
+        $price1 = $this->config['price_1'] ?? '249';
+        $price2 = $this->config['price_2'] ?? '459';
+        $currency = $this->config['currency'] ?? 'د.م';
+
+        $html = '';
+
+        // Modern Pack-based form structure
+        if ($hasOffer === 'yes') {
+            // Pack x1
+            $html .= '
+                <div class="pack-container">
+                    <div class="pack-header">
+                        <div class="quantity">x1</div>
+                        <div class="title">واحد ب ' . $price1 . ' ' . $currency . '</div>
+                    </div>
+                    <div class="pack-details">
+                        <div class="price">' . $price1 . ' ' . $currency . '</div>
+                        <input type="hidden" name="pack_1" value="' . $price1 . ' ' . $currency . '">
+                        <div class="product-row">
+                            <label for="product_color_1">لون المنتج</label>
+                            <select id="product_color_1" name="product_color_1">
+                                <option value="">إختيار اللون</option>';
+
+            // Add color options
+            if (isset($this->config['color_options']) && is_array($this->config['color_options'])) {
+                foreach ($this->config['color_options'] as $index => $color) {
+                    $value = isset($this->config['color_values'][$index]) ? $this->config['color_values'][$index] : $color;
+                    $html .= '<option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($color) . '</option>';
+                }
+            }
+
+            $html .= '
+                            </select>';
+
+            // Add size options for two_variants
+            if ($productType === 'two_variants') {
+                $html .= '
+                            <label for="product_size_1">الحجم</label>
+                            <select id="product_size_1" name="product_size_1">
+                                <option value="">إختيار الحجم</option>';
+
+                if (isset($this->config['size_options']) && is_array($this->config['size_options'])) {
+                    foreach ($this->config['size_options'] as $index => $size) {
+                        $value = isset($this->config['size_values'][$index]) ? $this->config['size_values'][$index] : $size;
+                        $html .= '<option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($size) . '</option>';
+                    }
+                }
+
+                $html .= '
+                            </select>';
+            }
+
+            $html .= '
+                        </div>
+                    </div>
+                </div>';
+
+            // Pack x2
+            $html .= '
+                <div class="pack-container">
+                    <div class="pack-header">
+                        <div class="quantity">x2</div>
+                        <div class="title">إثنان ب ' . $price2 . ' ' . $currency . '</div>
+                    </div>
+                    <div class="pack-details">
+                        <div class="price">' . $price2 . ' ' . $currency . '</div>
+                        <input type="hidden" name="pack_2" value="' . $price2 . ' ' . $currency . '">
+                        <div class="product-row">
+                            <label for="product_color_2">لون المنتج الأول</label>
+                            <select id="product_color_2" name="product_color_2">
+                                <option value="">إختيار اللون</option>';
+
+            // Add color options for pack 2
+            if (isset($this->config['color_options']) && is_array($this->config['color_options'])) {
+                foreach ($this->config['color_options'] as $index => $color) {
+                    $value = isset($this->config['color_values'][$index]) ? $this->config['color_values'][$index] : $color;
+                    $html .= '<option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($color) . '</option>';
+                }
+            }
+
+            $html .= '
+                            </select>';
+
+            // Add size options for two_variants
+            if ($productType === 'two_variants') {
+                $html .= '
+                            <label for="product_size_2">الحجم الأول</label>
+                            <select id="product_size_2" name="product_size_2">
+                                <option value="">إختيار الحجم</option>';
+
+                if (isset($this->config['size_options']) && is_array($this->config['size_options'])) {
+                    foreach ($this->config['size_options'] as $index => $size) {
+                        $value = isset($this->config['size_values'][$index]) ? $this->config['size_values'][$index] : $size;
+                        $html .= '<option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($size) . '</option>';
+                    }
+                }
+
+                $html .= '
+                            </select>';
+            }
+
+            $html .= '
+                        </div>
+                        <div class="product-row">
+                            <label for="product_color_2_second">لون المنتج الثاني</label>
+                            <select id="product_color_2_second" name="product_color_2_second">
+                                <option value="">إختيار اللون</option>';
+
+            // Add color options for second product in pack 2
+            if (isset($this->config['color_options']) && is_array($this->config['color_options'])) {
+                foreach ($this->config['color_options'] as $index => $color) {
+                    $value = isset($this->config['color_values'][$index]) ? $this->config['color_values'][$index] : $color;
+                    $html .= '<option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($color) . '</option>';
+                }
+            }
+
+            $html .= '
+                            </select>';
+
+            // Add size options for second product
+            if ($productType === 'two_variants') {
+                $html .= '
+                            <label for="product_size_2_second">الحجم الثاني</label>
+                            <select id="product_size_2_second" name="product_size_2_second">
+                                <option value="">إختيار الحجم</option>';
+
+                if (isset($this->config['size_options']) && is_array($this->config['size_options'])) {
+                    foreach ($this->config['size_options'] as $index => $size) {
+                        $value = isset($this->config['size_values'][$index]) ? $this->config['size_values'][$index] : $size;
+                        $html .= '<option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($size) . '</option>';
+                    }
+                }
+
+                $html .= '
+                            </select>';
+            }
+
+            $html .= '
+                        </div>
+                    </div>
+                </div>';
+        } else {
+            // Simple form without packs
+>>>>>>> 39761ea4f25810faff5b4b7d241c3cbc8339bc95
             $html .= '
                 <div class="form-group is-required">
                     <label class="form-label">لون المنتج</label>
                     <select required name="product_color" id="product_color">
+<<<<<<< HEAD
                         <option value="">المرجو إختيار لون المنتج</option>
             ';
             
@@ -415,15 +583,60 @@ class TemplateEngine {
             <input type="hidden" name="number_tier" id="number_tier" value="1">
             <input type="hidden" name="price_tiers" id="price_tiers" value="">
             
+=======
+                        <option value="">المرجو إختيار لون المنتج</option>';
+
+            if (isset($this->config['color_options']) && is_array($this->config['color_options'])) {
+                foreach ($this->config['color_options'] as $index => $color) {
+                    $value = isset($this->config['color_values'][$index]) ? $this->config['color_values'][$index] : $color;
+                    $html .= '<option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($color) . '</option>';
+                }
+            }
+
+            $html .= '
+                    </select>
+                </div>';
+
+            if ($productType === 'two_variants') {
+                $html .= '
+                <div class="form-group is-required">
+                    <label class="form-label">حجم المنتج</label>
+                    <select required name="product_size" id="product_size">
+                        <option value="">المرجو إختيار حجم المنتج</option>';
+
+                if (isset($this->config['size_options']) && is_array($this->config['size_options'])) {
+                    foreach ($this->config['size_options'] as $index => $size) {
+                        $value = isset($this->config['size_values'][$index]) ? $this->config['size_values'][$index] : $size;
+                        $html .= '<option value="' . htmlspecialchars($value) . '">' . htmlspecialchars($size) . '</option>';
+                    }
+                }
+
+                $html .= '
+                    </select>
+                </div>';
+            }
+        }
+
+        // Customer information fields
+        $html .= '
+            <input type="hidden" name="number_tier" id="number_tier" value="1">
+            <input type="hidden" name="price_tiers" id="price_tiers" value="">
+
+>>>>>>> 39761ea4f25810faff5b4b7d241c3cbc8339bc95
             <div class="form-group is-required">
                 <label class="form-label">الإسم الكامل</label>
                 <input required type="text" name="fullname" placeholder="الأسم الكامل">
             </div>
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 39761ea4f25810faff5b4b7d241c3cbc8339bc95
             <div class="form-group is-required">
                 <label class="form-label">رقم الهاتف</label>
                 <input required type="number" name="phone" placeholder="رقم الهاتف">
             </div>
+<<<<<<< HEAD
             
             <div class="form-group is-required">
                 <label class="form-label">العنوان</label>
@@ -431,6 +644,14 @@ class TemplateEngine {
             </div>
         ';
         
+=======
+
+            <div class="form-group is-required">
+                <label class="form-label">العنوان</label>
+                <input required type="text" name="adresse" placeholder="العنوان">
+            </div>';
+
+>>>>>>> 39761ea4f25810faff5b4b7d241c3cbc8339bc95
         return $html;
     }
 
@@ -568,8 +789,26 @@ class TemplateEngine {
     private function generateReviews() {
         $reviews = json_decode($this->config['selected_reviews'] ?? '[]', true);
         $html = '';
+<<<<<<< HEAD
         
         foreach ($reviews as $review) {
+=======
+
+        // Array of different avatar images from pant-classe-pad1
+        $avatars = [
+            'images/profile 1.png',
+            'images/profile 2.jpeg',
+            'images/profile 3.jpeg',
+            'images/profile 4.png',
+            'images/noir-profil.jpg'
+        ];
+
+        foreach ($reviews as $index => $review) {
+            // Use different avatar for each review
+            $avatarIndex = $index % count($avatars);
+            $avatar = $avatars[$avatarIndex];
+
+>>>>>>> 39761ea4f25810faff5b4b7d241c3cbc8339bc95
             $html .= "
                 <div class=\"u-align-right u-container-style u-list-item u-repeater-item\">
                     <div class=\"u-container-layout u-similar-container u-valign-middle-md u-container-layout-1\">
@@ -579,12 +818,20 @@ class TemplateEngine {
                                 <h5 class=\"u-align-right u-custom-font u-heading-font u-text u-text-black u-text-3\">- {$review['name']}</h5>
                             </div>
                         </div>
+<<<<<<< HEAD
                         <div class=\"u-image u-image-circle u-preserve-proportions u-image-1\" alt=\"\"></div>
+=======
+                        <div class=\"u-image u-image-circle u-preserve-proportions u-image-1\" style=\"background-image: url('{$avatar}')\" alt=\"{$review['name']}\"></div>
+>>>>>>> 39761ea4f25810faff5b4b7d241c3cbc8339bc95
                     </div>
                 </div>
             ";
         }
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 39761ea4f25810faff5b4b7d241c3cbc8339bc95
         return $html;
     }
     
@@ -616,6 +863,7 @@ class TemplateEngine {
     }
     
     private function copyAssets($projectDir) {
+<<<<<<< HEAD
         // Copy images directory
         $imagesDir = $projectDir . '/images';
         if (!file_exists($imagesDir)) {
@@ -623,10 +871,39 @@ class TemplateEngine {
         }
         
         // Copy other necessary files
+=======
+        // Use the modern template: pant-classe-pad1
+        $templateDir = dirname(__DIR__, 2) . '/pant-classe-pad1';
+
+        if (!file_exists($templateDir)) {
+            throw new Exception("Template directory not found: {$templateDir}");
+        }
+
+        // Copy all directories and files from pant-classe-pad1
+        $directoriesToCopy = [
+            'css',
+            'js',
+            'images',
+            'clients_reviews',
+            'pages'
+        ];
+
+        foreach ($directoriesToCopy as $dir) {
+            $sourceDir = $templateDir . '/' . $dir;
+            $targetDir = $projectDir . '/' . $dir;
+
+            if (file_exists($sourceDir)) {
+                $this->copyDirectory($sourceDir, $targetDir);
+            }
+        }
+
+        // Copy individual files
+>>>>>>> 39761ea4f25810faff5b4b7d241c3cbc8339bc95
         $filesToCopy = [
             'loader.html',
             'order_success.html'
         ];
+<<<<<<< HEAD
         
         $templateDir = dirname(__DIR__, 2) . '/chemise_simple';
 
@@ -650,6 +927,17 @@ class TemplateEngine {
         if (file_exists($templateReviewsDir)) {
             $this->copyDirectory($templateReviewsDir, $reviewsDir);
         }
+=======
+
+        foreach ($filesToCopy as $file) {
+            $sourceFile = $templateDir . '/' . $file;
+            $targetFile = $projectDir . '/' . $file;
+
+            if (file_exists($sourceFile)) {
+                copy($sourceFile, $targetFile);
+            }
+        }
+>>>>>>> 39761ea4f25810faff5b4b7d241c3cbc8339bc95
     }
     
     private function copyDirectory($source, $destination) {
@@ -677,30 +965,58 @@ class TemplateEngine {
     }
     
     private function createZipFile($projectDir, $projectName) {
+<<<<<<< HEAD
         $zipFile = $this->outputDir . '/' . $projectName . '.zip';
         
+=======
+        // Create ZIP in the landing-page-generator directory for download
+        $zipFile = dirname(__DIR__) . '/generated/' . $projectName . '.zip';
+
+        // Ensure generated directory exists
+        $generatedDir = dirname(__DIR__) . '/generated';
+        if (!file_exists($generatedDir)) {
+            mkdir($generatedDir, 0755, true);
+        }
+
+>>>>>>> 39761ea4f25810faff5b4b7d241c3cbc8339bc95
         $zip = new ZipArchive();
         if ($zip->open($zipFile, ZipArchive::CREATE | ZipArchive::OVERWRITE) === TRUE) {
             $iterator = new RecursiveIteratorIterator(
                 new RecursiveDirectoryIterator($projectDir, RecursiveDirectoryIterator::SKIP_DOTS),
                 RecursiveIteratorIterator::SELF_FIRST
             );
+<<<<<<< HEAD
             
             foreach ($iterator as $file) {
                 $filePath = $file->getRealPath();
                 $relativePath = substr($filePath, strlen($projectDir) + 1);
                 
+=======
+
+            foreach ($iterator as $file) {
+                $filePath = $file->getRealPath();
+                $relativePath = substr($filePath, strlen($projectDir) + 1);
+
+>>>>>>> 39761ea4f25810faff5b4b7d241c3cbc8339bc95
                 if ($file->isDir()) {
                     $zip->addEmptyDir($relativePath);
                 } else {
                     $zip->addFile($filePath, $relativePath);
                 }
             }
+<<<<<<< HEAD
             
             $zip->close();
             return $zipFile;
         }
         
+=======
+
+            $zip->close();
+            return $zipFile;
+        }
+
+>>>>>>> 39761ea4f25810faff5b4b7d241c3cbc8339bc95
         return false;
     }
     

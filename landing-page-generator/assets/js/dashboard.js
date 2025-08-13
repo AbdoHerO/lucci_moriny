@@ -429,6 +429,12 @@ function previewLandingPage() {
     const formData = new FormData(form);
     formData.append('selected_reviews', JSON.stringify(selectedReviews));
 
+<<<<<<< HEAD
+=======
+    // Add timestamp to force refresh and avoid caching
+    formData.append('preview_timestamp', Date.now());
+
+>>>>>>> 39761ea4f25810faff5b4b7d241c3cbc8339bc95
     // Create a temporary form to submit to preview.php
     const previewForm = document.createElement('form');
     previewForm.method = 'POST';
@@ -447,6 +453,12 @@ function previewLandingPage() {
     document.body.appendChild(previewForm);
     previewForm.submit();
     document.body.removeChild(previewForm);
+<<<<<<< HEAD
+=======
+
+    // Show success message
+    showAlert('تم إنشاء المعاينة بنجاح! تحقق من النافذة الجديدة', 'success');
+>>>>>>> 39761ea4f25810faff5b4b7d241c3cbc8339bc95
 }
 
 // Generate landing page
