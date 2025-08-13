@@ -189,11 +189,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         console.log("sheetDBData", sheetDBData);
 
-        fetch("https://sheetdb.io/api/v1/0tjsq029vh1s9", {
+        fetch("https://sheetdb.io/api/v1/npa2txqmvt7p4", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
-              "Authorization": "Bearer c4pbl6r3lwr8r0bossphcnv02tpic1dqlp40ifla"
+              "Authorization": "Bearer ywhf1x5zisq1f7fzt0qtkm80hxdddfb5zvul2x4t"
             },
             body: JSON.stringify({ data: sheetDBData }),
           })
